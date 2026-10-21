@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasibol Hasan | Creative Scrapbook Portfolio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-desk: #ece6dc;
+      --blue-primary: #1555c8;
+      --blue-dark: #0d3b8e;
+      --blue-tape: #1454c6;
+      --paper-cream: #faf7ee;
+      --paper-white: #ffffff;
+      --yellow-sticky: #fef08a;
+      --lime-neon: #d9f944;
+      --pink-card: #fce7f3;
+      --pink-border: #f472b6;
+      --yellow-card: #fef9c3;
+      --yellow-border: #facc15;
+      --cyan-card: #e0f2fe;
+      --cyan-border: #38bdf8;
+      --board-dark: #27282b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-desk);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 0, 0, 0.015) 40px, rgba(0, 0, 0, 0.015) 41px);
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 12px 56px 12px;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* GLOBAL CLICK TACTILE INTERACTION */
+    button, .nav-pill, .skill-tag, .app-tile, .client-card, .link-item, 
+    .hobby-tag, .contact-callout-sticker, .tab, .id-holder, .game-action-btn, 
+    .holographic-badge, .stationery-deck-card, .gift-3d, .mode-pill {
+      cursor: pointer;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+    }
+
+    button:active, .nav-pill:active, .game-action-btn:active, .mode-pill:active {
+      transform: scale(0.93) translateY(2px) !important;
+    }
+
+    .skill-tag:active, .app-tile:active {
+      transform: scale(0.88) rotate(-4deg) !important;
+    }
+
+    .client-card:active, .link-item:active {
+      transform: scale(0.97) translateX(4px) !important;
+    }
+
+    .hobby-tag:active {
+      transform: scale(0.96) rotate(1deg) !important;
+    }
+
+    /* Keyframe Animations */
+    @keyframes stickerWiggle {
+      0% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-8deg) scale(1.12); }
+      40% { transform: rotate(6deg) scale(1.1); }
+      60% { transform: rotate(-4deg) scale(1.05); }
+      80% { transform: rotate(2deg) scale(1.02); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
+    @keyframes clickPopSquish {
+      0% { transform: scale(1); }
+      35% { transform: scale(0.88, 1.15) translateY(-4px); }
+      65% { transform: scale(1.12, 0.9) translateY(2px); }
+      85% { transform: scale(0.98, 1.02); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes badgeLanyardSwing {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(6deg) translateY(-2px); }
+      40% { transform: rotate(-5deg) translateY(1px); }
+      60% { transform: rotate(3deg); }
+      80% { transform: rotate(-1.5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes noteFlutter {
+      0% { transform: rotate(-1.5deg) scale(1); }
+      30% { transform: rotate(-5deg) scale(1.04) translateY(-3px); }
+      60% { transform: rotate(1deg) scale(0.98); }
+      100% { transform: rotate(-1.5deg) scale(1); }
+    }
+
+    .animate-wiggle { animation: stickerWiggle 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .animate-squish { animation: clickPopSquish 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .animate-swing { transform-origin: top center; animation: badgeLanyardSwing 0.8s ease-in-out forwards; }
+    .animate-flutter { animation: noteFlutter 0.4s ease forwards; }
+
+    /* Click Sparkle Particles */
+    .click-sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      border-radius: 50%;
+      animation: sparkleFly 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes sparkleFly {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0) rotate(180deg); }
+    }
+
+    /* Floating Navigation Pill Bar */
+    .quick-toolbar {
+      position: sticky;
+      top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 6px 10px;
+      border-radius: 9999px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      margin-bottom: 22px;
+      max-width: 96vw;
+    }
+
+    .nav-links-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-pill {
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #4b5563;
+      padding: 6px 13px;
+      border-radius: 9999px;
+      background: #f3f4f6;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-pill:hover, .nav-pill.active {
+      background: var(--blue-primary);
+      color: #ffffff;
+    }
+
+    /* Main Desk Canvas */
+    .desk-canvas {
+      width: 100%;
+      max-width: 920px;
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .section-anchor {
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+
+    .top-tag-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-right: 20px;
+      margin-bottom: -14px;
+      z-index: 20;
+    }
+
+    .section-number-tag {
+      background: #facc15;
+      color: #713f12;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 5px 11px;
+      border-radius: 4px;
+      transform: rotate(-3deg);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .about-me-tag {
+      background: var(--blue-primary);
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.35rem, 4vw, 2.45rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      padding: 8px 26px;
+      box-shadow: 0 8px 20px rgba(21, 85, 200, 0.35);
+      border-radius: 2px;
+      text-transform: lowercase;
+      transform: rotate(-0.5deg);
+    }
+
+    /* Section 01: Profile & Intro */
+    .top-section {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 275px 1fr;
+      gap: 22px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 10;
+    }
+
+    .id-badge-assembly {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -20px;
+      width: 100%;
+      max-width: 275px;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
+      transform-origin: top center;
+    }
+
+    .lanyard-strap {
+      width: 46px;
+      height: 56px;
+      background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+    .strap-texture {
+      width: 100%;
+      height: 100%;
+      background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 4px, transparent 4px, transparent 8px);
+    }
+
+    .metal-clip-wrap {
+      position: relative;
+      margin-top: -6px;
+      margin-bottom: -10px;
+      z-index: 2;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    }
+
+    .id-holder {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      padding: 14px 12px 16px 12px;
+      position: relative;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .slot-hole {
+      width: 52px;
+      height: 10px;
+      background: #374151;
+      border-radius: 9999px;
+      margin: 0 auto 12px auto;
+      border: 2px solid #e5e7eb;
+    }
+
+    .id-card-inner {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 12px;
+      position: relative;
+    }
+
+    /* Typographic Monogram Card */
+    .id-monogram-box {
+      width: 100%;
+      padding: 22px 12px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #1555c8 0%, #0d3b8e 100%);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid #1e40af;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .monogram-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+    .monogram-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .monogram-role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fef08a;
+      margin-top: 3px;
+    }
+
+    .contact-sticky {
+      background: var(--yellow-sticky);
+      margin-top: -8px;
+      margin-left: -8px;
+      margin-right: -8px;
+      position: relative;
+      z-index: 5;
+      padding: 12px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+      transform: rotate(-1.5deg);
+    }
+    .sticky-header {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #111827;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .contact-list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+    .contact-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #4b5563;
+    }
+    .contact-email-item {
+      flex-direction: column !important;
+      gap: 2px !important;
+      padding-top: 4px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .contact-list a { color: #1555c8; font-weight: 700; text-decoration: none; word-break: break-all; font-size: 0.7rem; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    .plastic-shine {
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.15) 100%);
+      pointer-events: none;
+    }
+
+    /* Notebook Sheet */
+    .notebook-sheet {
+      width: 100%;
+      min-width: 0;
+      background: var(--paper-cream);
+      border-radius: 6px;
+      padding: 28px 28px 26px 30px;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      border-top: 14px solid #f1ece1;
+      background-image: repeating-linear-gradient(#faf7ee 0px, #faf7ee 27px, #e2ded5 28px);
+      margin-top: 8px;
+    }
+
+    .binder-holes {
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .binder-holes span {
+      width: 8px;
+      height: 8px;
+      background: var(--bg-desk);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .washi-tape-sketch {
+      position: absolute;
+      top: -12px;
+      right: 22px;
+      width: 40px;
+      height: 42px;
+      background: rgba(250, 204, 21, 0.45);
+      transform: rotate(3deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #713f12;
+    }
+
+    .note-intro-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hello-name-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1.5px solid #64748b;
+      border-radius: 5px;
+      padding: 2px 8px;
+      background: #ffffff;
+      transform: rotate(-2deg);
+      flex-shrink: 0;
+    }
+    .hello-tag { font-family: 'Caveat', cursive; font-size: 0.95rem; font-weight: 700; line-height: 1; }
+    .name-sub { font-family: 'Space Grotesk', sans-serif; font-size: 0.58rem; font-weight: 700; color: #64748b; }
+    .person-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.65rem, 4vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--blue-primary);
+      line-height: 1.05;
+    }
+
+    .note-content-body {
+      font-size: 0.86rem;
+      line-height: 1.78;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      user-select: text;
+    }
+
+    .hobbies-scrap-box {
+      margin-top: 14px;
+      background: #fff;
+      border: 1px dashed #cbd5e1;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .hobbies-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hobby-tag {
+      display: flex;
+      align-items: center;
+      padding: 9px 11px;
+      border-radius: 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+    .hobby-gaming { border-left: 3px solid #10b981; }
+    .hobby-writing { border-left: 3px solid #8b5cf6; }
+    .hobby-text { display: flex; flex-direction: column; min-width: 0; }
+    .hobby-text strong { font-size: 0.78rem; color: #1e293b; }
+    .hobby-sub { font-size: 0.69rem; color: #64748b; line-height: 1.35; }
+
+    .note-stickers-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      gap: 12px;
+    }
+    .contact-callout-sticker {
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: var(--yellow-sticky);
+      padding: 5px 14px;
+      border-radius: 2px;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .holographic-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .holo-core {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg at 50% 50%, #ff7676 0deg, #fcd34d 60deg, #34d399 120deg, #38bdf8 180deg, #818cf8 240deg, #f472b6 300deg, #ff7676 360deg);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: holoSpin 8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes holoSpin { 100% { transform: rotate(360deg); } }
+    .holo-dot { width: 9px; height: 9px; border-radius: 50%; background: #ffffff; }
+    .holo-text { font-family: 'Caveat', cursive; font-size: 0.95rem; color: #b91c1c; font-weight: 700; line-height: 1.1; }
+
+    .notebook-tabs {
+      position: absolute;
+      top: 110px;
+      right: -24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tab {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 3px 12px 3px 8px;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.12);
+      color: #ffffff;
+    }
+    .tab-blue { background: #38bdf8; }
+    .tab-orange { background: #f97316; }
+    .tab-yellow { background: #eab308; }
+
+    /* Washi Ribbon Dividers */
+    .washi-banner-divider {
+      width: 100%;
+      background: var(--blue-tape);
+      box-shadow: 0 6px 14px rgba(20, 84, 198, 0.28);
+      transform: rotate(-0.5deg);
+      border-radius: 3px;
+      position: relative;
+      z-index: 15;
+    }
+    .washi-banner-games { background: #0f172a; transform: rotate(0.5deg); }
+    .washi-tape-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 14px;
+      padding: 9px 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(0.76rem, 2.2vw, 1.05rem);
+      color: #ffffff;
+      text-align: center;
+    }
+    .washi-sep { color: #fef08a; }
+
+    /* Section 02: Clipboard */
+    .clipboard-container { width: 100%; position: relative; z-index: 5; }
+    .clipboard-board {
+      background: var(--board-dark);
+      border-radius: 16px;
+      padding: 22px 20px 28px 46px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .clipboard-clamp {
+      position: absolute;
+      top: 50%;
+      left: -24px;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 65px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .clamp-metal-body {
+      width: 32px;
+      height: 150px;
+      background: linear-gradient(90deg, #d4af37 0%, #fff2b2 35%, #b8860b 80%, #785a06 100%);
+      border-radius: 4px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .clamp-rivet {
+      width: 8px;
+      height: 8px;
+      background: #4b3605;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .rivet-left { top: 18px; }
+    .rivet-right { bottom: 18px; }
+    .clamp-loop-wire {
+      position: absolute;
+      left: -18px;
+      width: 34px;
+      height: 70px;
+      border: 5px solid #e0c568;
+      border-right: none;
+      border-radius: 16px 0 0 16px;
+    }
+
+    .clipboard-paper {
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 28px 28px 34px 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    .paper-columns-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; }
+    .paper-col-left { display: flex; flex-direction: column; gap: 24px; }
+    .block-section { display: flex; flex-direction: column; gap: 12px; }
+    .highlighter-pill {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1rem, 2.5vw, 1.22rem);
+      padding: 4px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .pill-lime { background: var(--lime-neon); color: #1555c8; }
+    .pill-yellow { background: #fef08a; color: #0f172a; }
+
+    .timeline-items { display: flex; flex-direction: column; gap: 12px; }
+    .timeline-entry { display: flex; align-items: flex-start; gap: 10px; }
+    .year-pill {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #1555c8;
+      border: 1.5px solid #93c5fd;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: #f0f7ff;
+      flex-shrink: 0;
+    }
+    .entry-details { display: flex; flex-direction: column; min-width: 0; }
+    .edu-title { font-size: 0.83rem; font-weight: 700; color: #0f172a; }
+    .edu-sub { font-size: 0.74rem; color: #64748b; }
+
+    .stickers-skill-cloud { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .tag-typography {
+      background: #fef08a;
+      color: #1e293b;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+    .tag-video {
+      background: #22c55e;
+      color: #ffffff;
+      padding: 5px 11px 9px 11px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 0.64rem;
+      font-weight: 700;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    }
+    .tag-photo {
+      background: #dc2626;
+      color: #ffffff;
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .tag-layout {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 5px 11px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.72rem;
+    }
+    .tag-gaming {
+      background: #6366f1;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    /* Mobile Editing Apps Grid */
+    .mobile-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      text-align: center;
+    }
+    .software-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .app-tile {
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .tile-cc { background: #111827; color: #38bdf8; border: 2px solid #38bdf8; }
+    .tile-lr { background: #001d26; color: #31a8ff; border: 2px solid #ff7b92; }
+    .tile-am { background: #064e3b; color: #34d399; border: 2px solid #10b981; }
+    .tile-sn { background: #14532d; color: #86efac; border: 2px solid #22c55e; }
+    .tile-vn { background: #3b0764; color: #f472b6; border: 2px solid #ec4899; }
+    .app-name { font-size: 0.62rem; font-weight: 600; color: #64748b; line-height: 1.15; }
+
+    /* Right Column: Experience */
+    .paper-col-right { display: flex; flex-direction: column; gap: 18px; }
+    .exp-header-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; position: relative; }
+    .section-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--blue-primary); }
+    .approved-stamp {
+      padding: 2px 8px;
+      border: 2px solid #16a34a;
+      border-radius: 6px;
+      transform: rotate(6deg);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #16a34a;
+    }
+    .yellow-tape-flag {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 15px;
+      background: #facc15;
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    }
+
+    .exp-job-card { display: flex; flex-direction: column; gap: 10px; }
+    .job-meta-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; }
+    .job-role { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: #0f172a; }
+    .date-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+    .job-role-sub { font-size: 0.78rem; color: #475569; }
+    .client-cards-stack { display: flex; flex-direction: column; gap: 10px; }
+    .client-card { border-radius: 4px; padding: 10px 12px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06); border-left: 4px solid transparent; }
+    .card-yellow { background: var(--yellow-card); border-left-color: var(--yellow-border); }
+    .card-pink { background: var(--pink-card); border-left-color: var(--pink-border); }
+    .card-cyan { background: var(--cyan-card); border-left-color: var(--cyan-border); }
+    .client-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+    .client-desc { font-size: 0.74rem; color: #475569; line-height: 1.45; }
+    .blue-peach-card { border-top: 1px dashed #e2e8f0; padding-top: 14px; }
+    .job-summary { font-size: 0.76rem; line-height: 1.5; color: #475569; }
+
+    .paper-curl-corner {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.15) 50%, rgba(220,215,200,1) 53%, #fafafa 100%);
+      border-radius: 0 0 4px 0;
+      pointer-events: none;
+    }
+
+    /* Section 03: Personal Tools & Links */
+    .tools-section-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      position: relative;
+      z-index: 8;
+    }
+    .sec3-header-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; text-align: center; }
+    .sec3-title { font-family: 'Syne', sans-serif; font-size: clamp(1.45rem, 3.5vw, 2.2rem); font-weight: 800; color: #0f172a; }
+
+    .interactive-games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .game-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    .game-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      color: #facc15;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.64rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+    .game-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-top: 6px; margin-bottom: 6px; }
+    .game-desc { font-size: 0.73rem; color: #64748b; line-height: 1.4; margin-bottom: 14px; min-height: 32px; }
+
+    .game-action-btn {
+      background: var(--blue-primary);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      box-shadow: 0 4px 12px rgba(21, 85, 200, 0.3);
+      margin-top: auto;
+    }
+
+    /* CSS Gift Box */
+    .gift-box-stage { width: 100%; height: 90px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .gift-3d { width: 60px; height: 60px; position: relative; }
+    .gift-lid {
+      width: 64px;
+      height: 20px;
+      background: #ef4444;
+      border-bottom: 1px solid #b91c1c;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      left: -2px;
+      z-index: 2;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .gift-lid.open { transform: translateY(-28px) rotate(-22deg) scale(1.05); }
+    .gift-ribbon-v { width: 12px; height: 100%; background: #fef08a; }
+    .gift-body {
+      width: 60px;
+      height: 44px;
+      background: #dc2626;
+      border-radius: 0 0 4px 4px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gift-result-card {
+      background: #fefce8;
+      border: 1px dashed #ca8a04;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 12px;
+      width: 100%;
+      min-height: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .gift-badge-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; color: #854d0e; }
+    .gift-quote { font-family: 'Caveat', cursive; font-size: 0.94rem; font-weight: 700; color: #451a03; line-height: 1.2; margin-top: 2px; }
+    .confetti-container { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+    /* Card Deck */
+    .card-deck-stage { width: 100%; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 600px; margin-bottom: 10px; }
+    .stationery-deck-card { width: 100%; max-width: 185px; height: 120px; }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      border-radius: 8px;
+    }
+    .card-inner.flipped { transform: rotateY(180deg); }
+    .card-front, .card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .card-front { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: #ffffff; border: 2px solid #93c5fd; }
+    .card-deck-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+    .card-front p { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 700; margin-top: 8px; }
+    .card-back { background: #fef9c3; color: #1e293b; transform: rotateY(180deg); border: 1.5px solid #facc15; text-align: center; }
+    .card-tag-type { font-size: 0.6rem; font-weight: 800; background: #facc15; color: #713f12; padding: 1px 6px; border-radius: 9999px; text-transform: uppercase; }
+    .card-task { font-size: 0.72rem; font-weight: 700; line-height: 1.25; margin-top: 6px; color: #0f172a; }
+    .card-quest-code { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 800; color: #854d0e; margin-top: 6px; }
+
+    /* Mini Game #3: Cyber Squad Aura & Rank Scanner */
+    .cyber-game-card {
+      background: #0f172a;
+      color: #ffffff;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+    }
+    .cyber-badge {
+      background: var(--lime-neon);
+      color: #0f172a;
+    }
+    .cyber-title {
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .mode-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      margin: 6px 0 10px 0;
+      width: 100%;
+    }
+    .mode-pill {
+      background: #1e293b;
+      color: #94a3b8;
+      border: none;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+    }
+    .mode-pill.active {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    .aura-hud-box {
+      width: 100%;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    .aura-hud-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .aura-mode-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.56rem;
+      color: #94a3b8;
+      display: block;
+    }
+    .aura-role-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .aura-rank-chip {
+      background: var(--lime-neon);
+      color: #0f172a;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .aura-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+    }
+    .aura-bar-label {
+      display: flex;
+      justify-content: space-between;
+      color: #cbd5e1;
+      margin-bottom: 2px;
+    }
+    .aura-bar-track {
+      width: 100%;
+      height: 6px;
+      background: #0f172a;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .aura-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+    .aura-verdict {
+      font-size: 0.68rem;
+      color: #e2e8f0;
+      line-height: 1.35;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px solid #334155;
+    }
+    .btn-cyber {
+      width: 100%;
+      background: var(--lime-neon);
+      color: #0f172a;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(217, 249, 68, 0.3);
+    }
+
+    /* Links Wall */
+    .links-wall-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      border: 1px solid #e2e8f0;
+    }
+    .links-wall-header { margin-bottom: 18px; }
+    .links-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.18rem, 3vw, 1.5rem); font-weight: 800; color: #0f172a; }
+    .links-sub { font-size: 0.78rem; color: #64748b; }
+    .links-category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .link-category-col { display: flex; flex-direction: column; gap: 10px; }
+    .cat-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 700; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+    .sticky-links-stack { display: flex; flex-direction: column; gap: 8px; }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-decoration: none;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #1e293b;
+    }
+    .link-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); }
+    .link-yt:hover { background: #fef2f2; border-color: #f87171; }
+    .link-web:hover { background: #eff6ff; border-color: #60a5fa; }
+    .link-social:hover { background: #f0fdf4; border-color: #4ade80; }
+    .link-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+    .link-info strong, .link-single-label { font-size: 0.8rem; font-weight: 700; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .link-info small { font-size: 0.65rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .link-action-tag { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; color: #1555c8; font-weight: 800; flex-shrink: 0; }
+
+    .portfolio-footer { margin-top: 8px; text-align: center; font-size: 0.76rem; color: #6b7280; padding: 0 10px; }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+       ========================================================================== */
+    @media (max-width: 860px) {
+      .top-section { grid-template-columns: 1fr; gap: 24px; }
+      .id-badge-assembly { margin-top: 0; }
+      .clipboard-board { padding: 16px 14px; }
+      .clipboard-clamp { display: none; }
+      .paper-columns-grid { grid-template-columns: 1fr; gap: 26px; }
+      .interactive-games-grid { grid-template-columns: repeat(2, 1fr); }
+      .cyber-game-card { grid-column: span 2; }
+      .links-category-grid { grid-template-columns: 1fr; }
+      .notebook-tabs {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px dashed #cbd5e1;
+      }
+      .tab { border-radius: 4px; }
+    }
+
+    @media (max-width: 580px) {
+      body { padding: 10px 8px 44px 8px; }
+      .nav-pill { font-size: 0.7rem; padding: 5px 10px; }
+      .top-tag-container { justify-content: center; padding-right: 0; margin-bottom: -8px; }
+      .contact-sticky { margin-left: -4px; margin-right: -4px; }
+      .notebook-sheet { padding: 20px 15px 18px 15px; }
+      .clipboard-board { padding: 10px; border-radius: 12px; }
+      .clipboard-paper { padding: 18px 14px 24px 14px; }
+      .mobile-tools-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .hobbies-grid, .interactive-games-grid { grid-template-columns: 1fr; }
+      .cyber-game-card { grid-column: span 1; }
+      .links-wall-card { padding: 18px 14px; }
+      .yellow-tape-flag { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Clean Navigation Pill Bar -->
+  <nav class="quick-toolbar" aria-label="Section Navigation">
+    <div class="nav-links-pills">
+      <a href="#section-profile" class="nav-pill active">01. Profile</a>
+      <a href="#section-experience" class="nav-pill">02. Experience</a>
+      <a href="#section-tools" class="nav-pill">03. Tools &amp; Links</a>
+    </div>
+  </nav>
+
+  <main class="desk-canvas">
+    
+    <!-- SECTION 1 -->
+    <div class="section-anchor" id="section-profile"></div>
+
+    <header class="top-tag-container">
+      <div class="section-number-tag">SEC 01</div>
+      <div class="about-me-tag">introduce myself</div>
+    </header>
+
+    <section class="top-section">
+      <!-- ID Badge Without Photo -->
+      <div class="id-badge-assembly" id="idBadge">
+        <div class="lanyard-strap"><div class="strap-texture"></div></div>
+        <div class="metal-clip-wrap">
+          <svg class="metal-clip-svg" viewBox="0 0 44 70" width="40" height="62">
+            <defs>
+              <linearGradient id="metalGradEmbed" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#b0b5be"/>
+                <stop offset="35%" stop-color="#ffffff"/>
+                <stop offset="65%" stop-color="#8a909a"/>
+                <stop offset="100%" stop-color="#4f545c"/>
+              </linearGradient>
+            </defs>
+            <rect x="14" y="2" width="16" height="12" rx="3" fill="url(#metalGradEmbed)" stroke="#45484d" stroke-width="1.5"/>
+            <path d="M22 14 L22 28" stroke="url(#metalGradEmbed)" stroke-width="4.5" stroke-linecap="round"/>
+            <ellipse cx="22" cy="27" rx="6" ry="3" fill="url(#metalGradEmbed)" stroke="#3e4248" stroke-width="1"/>
+            <path d="M12 28 C12 22, 32 22, 32 28 L34 46 C34 58, 10 58, 10 46 Z" fill="none" stroke="url(#metalGradEmbed)" stroke-width="4" stroke-linejoin="round"/>
+            <rect x="18" y="32" width="8" height="18" rx="2" fill="url(#metalGradEmbed)" stroke="#3e4248" stroke-width="1"/>
+            <path d="M10 48 Q22 66 34 48" fill="none" stroke="url(#metalGradEmbed)" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="id-holder">
+          <div class="slot-hole"></div>
+          <div class="id-card-inner">
+            <div class="id-monogram-box">
+              <div class="monogram-circle">HH</div>
+              <div class="monogram-name">Hasibol Hasan</div>
+              <div class="monogram-role">Developer &amp; Editor</div>
+            </div>
+
+            <div class="contact-sticky">
+              <div class="sticky-header">Personal Details</div>
+              <ul class="contact-list">
+                <li><span class="contact-label">Name</span> <span>Hasibol Hasan</span></li>
+                <li><span class="contact-label">DOB</span> <span>21 / 10 / 2006</span></li>
+                <li><span class="contact-label">Location</span> <span>Dhaka, Bangladesh</span></li>
+                <li class="contact-email-item">
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:hasibolhasan.pranto@gmail.com">hasibolhasan.pranto@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="plastic-shine"></div>
+        </div>
+      </div>
+
+      <!-- Notebook Bio Sheet -->
+      <article class="notebook-sheet">
+        <div class="binder-holes">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="washi-tape-sketch">NOTE</div>
+
+        <div class="note-intro-row">
+          <div class="hello-name-badge">
+            <span class="hello-tag">Hello</span>
+            <span class="name-sub">I AM</span>
+          </div>
+          <h1 class="person-name">Hasibol Hasan</h1>
+        </div>
+
+        <div class="note-content-body">
+          <p>
+            Hello! I am <strong>Hasibol Hasan</strong>, based in Dhaka, Bangladesh (Born: October 21, 2006). I am an enthusiastic creator and developer driven by modern technologies and artistic expression. My core focus spans across <strong>Application Engineering</strong>, <strong>Website Development</strong>, <strong>Photo Editing</strong>, and <strong>Video Editing</strong>.
+          </p>
+          <p>
+            I love turning creative ideas into functional digital reality — whether it is designing smooth interactive web apps, crafting video edits, or expressing thoughts through words and competitive gaming!
+          </p>
+        </div>
+
+        <div class="hobbies-scrap-box">
+          <div class="hobbies-title">Passions, Gaming &amp; Creative Writing:</div>
+          <div class="hobbies-grid">
+            <div class="hobby-tag hobby-gaming">
+              <div class="hobby-text">
+                <strong>Gaming Passion</strong>
+                <span class="hobby-sub">Minecraft • Free Fire • Blood Strike</span>
+              </div>
+            </div>
+            <div class="hobby-tag hobby-writing">
+              <div class="hobby-text">
+                <strong>Creative Writing</strong>
+                <span class="hobby-sub">Writing Poetry, Stories &amp; Quotes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-stickers-row">
+          <div class="contact-callout-sticker">
+            Welcome to my creative hub!
+          </div>
+          <div class="holographic-badge">
+            <div class="holo-core"><div class="holo-dot"></div></div>
+            <span class="holo-text">Coder &amp; Gamer</span>
+          </div>
+        </div>
+
+        <div class="notebook-tabs">
+          <span class="tab tab-blue">Developer</span>
+          <span class="tab tab-orange">Gamer</span>
+          <span class="tab tab-yellow">Poet</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Washi Ribbon 1 -->
+    <div class="washi-banner-divider">
+      <div class="washi-tape-content">
+        <span>App Engineering</span> <span class="washi-sep">/</span>
+        <span>Web Development</span> <span class="washi-sep">/</span>
+        <span>Video &amp; Photo Editing</span> <span class="washi-sep">/</span>
+        <span>Creative Writer</span>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section-anchor" id="section-experience"></div>
+
+    <section class="clipboard-container">
+      <div class="clipboard-board">
+        <div class="clipboard-clamp">
+          <div class="clamp-metal-body">
+            <div class="clamp-rivet rivet-left"></div>
+            <div class="clamp-rivet rivet-right"></div>
+          </div>
+          <div class="clamp-loop-wire"></div>
+        </div>
+
+        <div class="clipboard-paper">
+          <div class="paper-columns-grid">
+            <div class="paper-col-left">
+              <div class="block-section">
+                <div class="highlighter-pill pill-lime">Skills &amp; Capabilities</div>
+                <div class="timeline-items">
+                  <div class="timeline-entry">
+                    <span class="year-pill">APP</span>
+                    <div class="entry-details">
+                      <h4 class="edu-title">Application Engineering</h4>
+                      <p class="edu-sub">Logic design, software engineering &amp; functional components</p>
+                    </div>
+                  </div>
+                  <div class="timeline-entry">
+                    <span class="year-pill">WEB</span>
+                    <div class="entry-details">
+                      <h4 class="edu-title">Website Development</h4>
+                      <p class="edu-sub">Modern, responsive, user-friendly interactive web experiences</p>
+                    </div>
+                  </div>
+                  <div class="timeline-entry">
+                    <span class="year-pill">VIDEO</span>
+                    <div class="entry-details">
+                      <h4 class="edu-title">Video Editing</h4>
+                      <p class="edu-sub">Motion flow, montage cuts, audio syncing &amp; visual effects</p>
+                    </div>
+                  </div>
+                  <div class="timeline-entry">
+                    <span class="year-pill">PHOTO</span>
+                    <div class="entry-details">
+                      <h4 class="edu-title">Photo Editing &amp; Manipulation</h4>
+                      <p class="edu-sub">Creative retouching, color grading &amp; visual composition</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block-section">
+                <div class="skill-row-header">
+                  <div class="highlighter-pill pill-yellow">Specialties</div>
+                </div>
+                <div class="stickers-skill-cloud">
+                  <div class="skill-tag tag-typography">Clean Code</div>
+                  <div class="skill-tag tag-video">
+                    <span>Video &amp; Reel</span><span>Editing</span>
+                  </div>
+                  <div class="skill-tag tag-photo">
+                    <span>Photo</span><span>Manipulation</span>
+                  </div>
+                  <div class="skill-tag tag-layout">
+                    <strong>Creative</strong><small>Storytelling</small>
+                  </div>
+                  <div class="skill-tag tag-gaming"><span>Pro Gamer</span></div>
+                </div>
+              </div>
+
+              <!-- TOP 5 MOBILE EDITING APPS -->
+              <div class="block-section">
+                <div class="highlighter-pill pill-yellow">Top 5 Mobile Editing Apps</div>
+                <div class="mobile-tools-grid">
+                  <div class="software-item">
+                    <div class="app-tile tile-cc" title="CapCut - Video Editing">CC</div>
+                    <span class="app-name">CapCut</span>
+                  </div>
+                  <div class="software-item">
+                    <div class="app-tile tile-lr" title="Lightroom - Color Grading">Lr</div>
+                    <span class="app-name">Lightroom</span>
+                  </div>
+                  <div class="software-item">
+                    <div class="app-tile tile-am" title="Alight Motion - Motion Graphics">AM</div>
+                    <span class="app-name">Alight Motion</span>
+                  </div>
+                  <div class="software-item">
+                    <div class="app-tile tile-sn" title="Snapseed - Photo Retouching">Sn</div>
+                    <span class="app-name">Snapseed</span>
+                  </div>
+                  <div class="software-item">
+                    <div class="app-tile tile-vn" title="VN Video Editor - Cinematic Cuts">VN</div>
+                    <span class="app-name">VN Editor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="paper-col-right">
+              <div class="exp-header-row">
+                <h2 class="section-heading">My Experience</h2>
+                <div class="approved-stamp">VERIFIED</div>
+                <div class="yellow-tape-flag"></div>
+              </div>
+
+              <div class="exp-job-card">
+                <div class="job-meta-header">
+                  <h3 class="job-role">Full-Stack &amp; Application Development</h3>
+                  <span class="date-badge">Active</span>
+                </div>
+                <p class="job-role-sub">
+                  Engineering innovative applications, tools, and responsive interfaces:
+                </p>
+
+                <div class="client-cards-stack">
+                  <div class="client-card card-yellow">
+                    <h5 class="client-name">Web &amp; Application Engineering</h5>
+                    <p class="client-desc">Building interactive web platforms, single-page tools, custom scrapbooks, and lightweight embeddable widgets with clean architecture.</p>
+                  </div>
+                  <div class="client-card card-pink">
+                    <h5 class="client-name">Visual &amp; Mobile Multimedia Production</h5>
+                    <p class="client-desc">Creating high-impact mobile photo manipulation, cinematic video cuts using CapCut &amp; Alight Motion, gaming highlights, and aesthetic graphic assets.</p>
+                  </div>
+                  <div class="client-card card-cyan">
+                    <h5 class="client-name">Literature &amp; Creative Expression</h5>
+                    <p class="client-desc">Writing poetry, fictional narratives, and meaningful thought-provoking quotes reflecting life, dreams, and friendships.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-job-card blue-peach-card">
+                <div class="job-meta-header">
+                  <h3 class="job-role">Competitive &amp; Sandbox Gaming</h3>
+                  <span class="date-badge">Ongoing</span>
+                </div>
+                <p class="job-role-sub">Active player, tactical builder, and strategist:</p>
+                <p class="job-summary">Expert survival architecture in <strong>Minecraft</strong>, tactical clutch gameplay in <strong>Free Fire</strong>, and high-precision combat in <strong>Blood Strike</strong>.</p>
+              </div>
+            </div>
+          </div>
+          <div class="paper-curl-corner"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Washi Ribbon 2 -->
+    <div class="washi-banner-divider washi-banner-games">
+      <div class="washi-tape-content">
+        <span>Interactive Desk</span> <span class="washi-sep">/</span>
+        <span>Friendship Games</span> <span class="washi-sep">/</span>
+        <span>Squad Aura Scanner</span> <span class="washi-sep">/</span>
+        <span>Hasibol's Links</span>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section-anchor" id="section-tools"></div>
+
+    <section class="tools-section-container">
+      <div class="sec3-header-wrap">
+        <div class="section-number-tag">SEC 03</div>
+        <h2 class="sec3-title">Personal Tools &amp; Links</h2>
+      </div>
+
+      <div class="interactive-games-grid">
+        <!-- Game 1: Banglish Gift Box -->
+        <div class="game-card">
+          <div class="game-badge">Mini Game #1</div>
+          <h3 class="game-title">Friendship Gift Box</h3>
+          <p class="game-desc">Box e click kore unwrap koro ekta special friendship surprise ar mon chuya Banglish quote!</p>
+          
+          <div class="gift-box-stage">
+            <div class="gift-3d" id="giftBoxBtn" title="Box ti khulte click korun!">
+              <div class="gift-lid" id="giftLid"><div class="gift-ribbon-v"></div></div>
+              <div class="gift-body"><div class="gift-ribbon-v"></div></div>
+            </div>
+            <div class="confetti-container" id="confettiContainer"></div>
+          </div>
+
+          <div class="gift-result-card">
+            <div class="gift-badge-name" id="giftTitle">Box e click kore gift open koro!</div>
+            <p class="gift-quote" id="giftQuote">"Asol bondhura holo Minecraft er diamond er moto; khub rare kintu indestructible!"</p>
+          </div>
+
+          <button class="game-action-btn" id="openGiftBtn">Open Gift Box</button>
+        </div>
+
+        <!-- Game 2: Friendship Card Deck -->
+        <div class="game-card">
+          <div class="game-badge">Mini Game #2</div>
+          <h3 class="game-title">Friendship Card Deck</h3>
+          <p class="game-desc">Draw a card to discover a fun friendship challenge, activity, or creative game idea!</p>
+          
+          <div class="card-deck-stage">
+            <div class="stationery-deck-card" id="drawnCard">
+              <div class="card-inner" id="cardInner">
+                <div class="card-front">
+                  <span class="card-deck-label">DECK</span>
+                  <p>Tap "Draw Card"</p>
+                </div>
+                <div class="card-back">
+                  <div class="card-tag-type" id="cardCategory">Fun Challenge</div>
+                  <h4 class="card-task" id="cardTask">"Build a 2-player secret underground base in Minecraft together!"</h4>
+                  <div class="card-quest-code" id="cardCode">QUEST 01</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="game-action-btn" id="drawCardBtn">Draw a New Card</button>
+        </div>
+
+        <!-- Game 3: Cyber Squad Aura & Rank Scanner -->
+        <div class="game-card cyber-game-card">
+          <div class="game-badge cyber-badge">Mini Game #3 • PRO</div>
+          <h3 class="game-title cyber-title">Squad Aura &amp; Rank Scanner</h3>
+
+          <div class="mode-pills-row">
+            <button type="button" class="mode-pill active" data-mode="FREE FIRE">FREE FIRE</button>
+            <button type="button" class="mode-pill" data-mode="MINECRAFT">MINECRAFT</button>
+            <button type="button" class="mode-pill" data-mode="BLOOD STRIKE">BLOOD STRIKE</button>
+          </div>
+
+          <div class="aura-hud-box">
+            <div class="aura-hud-top">
+              <div>
+                <span class="aura-mode-sub" id="auraModeSub">SQUAD CLASS (FREE FIRE)</span>
+                <span class="aura-role-name" id="auraRoleName">Select Mode &amp; Scan</span>
+              </div>
+              <span class="aura-rank-chip" id="auraRankChip">READY</span>
+            </div>
+
+            <div class="aura-bars">
+              <div>
+                <div class="aura-bar-label">
+                  <span>CLUTCH AIM</span>
+                  <span id="aimVal" style="color:#38bdf8;font-weight:700;">88%</span>
+                </div>
+                <div class="aura-bar-track">
+                  <div id="aimBar" class="aura-bar-fill" style="width:88%;background:#38bdf8;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="aura-bar-label">
+                  <span>TACTICAL IQ</span>
+                  <span id="iqVal" style="color:#d9f944;font-weight:700;">92%</span>
+                </div>
+                <div class="aura-bar-track">
+                  <div id="iqBar" class="aura-bar-fill" style="width:92%;background:#d9f944;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="aura-bar-label">
+                  <span>AURA SYNERGY</span>
+                  <span id="vibeVal" style="color:#34d399;font-weight:700;">90%</span>
+                </div>
+                <div class="aura-bar-track">
+                  <div id="vibeBar" class="aura-bar-fill" style="width:90%;background:#34d399;"></div>
+                </div>
+              </div>
+            </div>
+
+            <p class="aura-verdict" id="auraVerdict">
+              Tap "Boost Squad Aura" to scan your live gaming &amp; friendship power level!
+            </p>
+          </div>
+
+          <button class="game-action-btn btn-cyber" id="scanAuraBtn">Boost Squad Aura</button>
+        </div>
+      </div>
+
+      <!-- Links Wall -->
+      <div class="links-wall-card">
+        <div class="links-wall-header">
+          <h3 class="links-heading">Hasibol's Personal Links &amp; Playlists</h3>
+          <span class="links-sub">Explore my curated music, project websites, and social connections!</span>
+        </div>
+
+        <div class="links-category-grid">
+          <div class="link-category-col">
+            <h4 class="cat-title">YouTube Links</h4>
+            <div class="sticky-links-stack">
+              <a href="https://youtube.com/playlist?list=PLYOuFMLXoWRAHlgNkCuFJ2DSiRImUnWg7&si=uFOT4itMjenaQh1n" target="_blank" rel="noopener noreferrer" class="link-item link-yt">
+                <span class="link-single-label">zMusic</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="link-category-col">
+            <h4 class="cat-title">Website Links</h4>
+            <div class="sticky-links-stack">
+              <a href="https://ultramotionofficial.com/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
+                <span class="link-single-label">Ultra Motion</span>
+              </a>
+              <a href="https://tojilabs.github.io/tojimotion/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
+                <span class="link-single-label">TojiLabs</span>
+              </a>
+              <a href="https://vanced.to/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
+                <span class="link-single-label">Vanced</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="link-category-col">
+            <h4 class="cat-title">Social Media</h4>
+            <div class="sticky-links-stack">
+              <a href="https://www.facebook.com/share/1JkwgjD84a/" target="_blank" rel="noopener noreferrer" class="link-item link-social">
+                <div class="link-info">
+                  <strong>Facebook Profile</strong>
+                  <small>Connect on Facebook</small>
+                </div>
+                <span class="link-action-tag">OPEN</span>
+              </a>
+              <a href="https://pin.it/1wcJbjp7E" target="_blank" rel="noopener noreferrer" class="link-item link-social">
+                <div class="link-info">
+                  <strong>Pinterest Board</strong>
+                  <small>Creative aesthetics &amp; pins</small>
+                </div>
+                <span class="link-action-tag">OPEN</span>
+              </a>
+              <a href="mailto:hasibolhasan.pranto@gmail.com" class="link-item link-social">
+                <div class="link-info">
+                  <strong>Direct Email</strong>
+                  <small>hasibolhasan.pranto@gmail.com</small>
+                </div>
+                <span class="link-action-tag">MAIL</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="portfolio-footer">
+      <p>© 2026 Hasibol Hasan • Dhaka, Bangladesh. Crafted with passion, code &amp; gaming spirit.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // GLOBAL CLICK SPARKLE BURST
+      const sparkleColors = ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6', '#ef4444', '#06b6d4'];
+
+      document.addEventListener('click', (e) => {
+        const interactiveTarget = e.target.closest('button, a, .skill-tag, .app-tile, .client-card, .link-item, .hobby-tag, .contact-sticky, .holographic-badge, .tab, .id-holder, .stationery-deck-card, .gift-3d');
+        if (interactiveTarget) {
+          createClickBurst(e.clientX, e.clientY);
+        }
+      });
+
+      function createClickBurst(x, y) {
+        const particleCount = 6;
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'click-sparkle';
+          const size = Math.floor(Math.random() * 6) + 5;
+          const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+          const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.5;
+          const distance = Math.floor(Math.random() * 40) + 30;
+          const dx = Math.cos(angle) * distance + 'px';
+          const dy = Math.sin(angle) * distance + 'px';
+
+          particle.style.cssText = `
+            left: ${x}px; top: ${y}px; width: ${size}px; height: ${size}px;
+            background: ${color}; box-shadow: 0 0 6px ${color};
+            --dx: ${dx}; --dy: ${dy};
+          `;
+          document.body.appendChild(particle);
+          setTimeout(() => { particle.remove(); }, 650);
+        }
+      }
+
+      // ELEMENT SPECIFIC CLICK ANIMATIONS
+      const idBadge = document.getElementById('idBadge');
+      if (idBadge) {
+        idBadge.addEventListener('click', () => {
+          idBadge.classList.remove('animate-swing');
+          void idBadge.offsetWidth;
+          idBadge.classList.add('animate-swing');
+        });
+      }
+
+      document.querySelectorAll('.skill-tag, .hobby-tag, .contact-callout-sticker, .holographic-badge, .tab').forEach(tag => {
+        tag.addEventListener('click', () => {
+          tag.classList.remove('animate-wiggle');
+          void tag.offsetWidth;
+          tag.classList.add('animate-wiggle');
+        });
+      });
+
+      document.querySelectorAll('.app-tile').forEach(tile => {
+        tile.addEventListener('click', () => {
+          tile.classList.remove('animate-squish');
+          void tile.offsetWidth;
+          tile.classList.add('animate-squish');
+        });
+      });
+
+      const contactSticky = document.querySelector('.contact-sticky');
+      if (contactSticky) {
+        contactSticky.addEventListener('click', (e) => {
+          e.stopPropagation();
+          contactSticky.classList.remove('animate-flutter');
+          void contactSticky.offsetWidth;
+          contactSticky.classList.add('animate-flutter');
+        });
+      }
+
+      // Mini Game 1: Banglish Friendship Gift Box
+      const giftBoxBtn = document.getElementById('giftBoxBtn');
+      const openGiftBtn = document.getElementById('openGiftBtn');
+      const giftLid = document.getElementById('giftLid');
+      const giftTitle = document.getElementById('giftTitle');
+      const giftQuote = document.getElementById('giftQuote');
+      const confettiContainer = document.getElementById('confettiContainer');
+
+      const giftSurprises = [
+        { title: "Golden Minecraft Trophy", quote: "Bondhutto mane har-jit na, eksathe rat jege survival base banano!" },
+        { title: "Diamond Heart of Loyalty", quote: "Asol bondhura holo Minecraft er diamond ore er moto; khub rare kintu durable!" },
+        { title: "Free Fire Clutch Partner", quote: "Je squad member tough 1v4 clutch situation eo pashe thake, shei asol bondhu!" },
+        { title: "Star of True Bond", quote: "Bondhu to shei je mukher kothar cheye chokher ar nirobothar bhasha beshi bujhe." },
+        { title: "Midnight Story Scroll", quote: "Golpo sesh hoye geleo shotti bondhutter kobita kokhono purono hoy na." },
+        { title: "Blood Strike Squad Medal", quote: "Battlefield jotoi dangerous hok, tui pashe thakle victory amaderi!" },
+        { title: "Late Night Adda Pass", quote: "Coffee, editing ar ekjon asol bondhur sathe adda — er cheye shantir kichu hoy na!" }
+      ];
+
+      let isBoxOpen = false;
+      function triggerOpenGift() {
+        isBoxOpen = !isBoxOpen;
+        if (isBoxOpen) {
+          giftLid.classList.add('open');
+          openGiftBtn.textContent = 'Bondho Kore Abar Khulo';
+          const randomGift = giftSurprises[Math.floor(Math.random() * giftSurprises.length)];
+          giftTitle.textContent = randomGift.title;
+          giftQuote.textContent = `"${randomGift.quote}"`;
+
+          if (confettiContainer) {
+            confettiContainer.innerHTML = '';
+            for (let i = 0; i < 16; i++) {
+              const conf = document.createElement('div');
+              conf.style.cssText = `
+                position: absolute; width: 8px; height: 8px;
+                background: #f59e0b; border-radius: 50%;
+                left: 50%; top: 60%; transform: translate(-50%, -50%);
+                pointer-events: none; transition: all 0.8s ease; opacity: 1;
+              `;
+              confettiContainer.appendChild(conf);
+              setTimeout(() => {
+                conf.style.transform = `translate(${ (Math.random() - 0.5) * 140 }px, -${ Math.random() * 70 + 20 }px)`;
+                conf.style.opacity = '0';
+              }, 20);
+            }
+          }
+        } else {
+          giftLid.classList.remove('open');
+          openGiftBtn.textContent = 'Open Gift Box';
+          giftTitle.textContent = 'Box e click kore gift open koro!';
+          giftQuote.textContent = 'Notun surprise unboxing er jonno wait koro...';
+        }
+      }
+      if (giftBoxBtn) giftBoxBtn.addEventListener('click', triggerOpenGift);
+      if (openGiftBtn) openGiftBtn.addEventListener('click', triggerOpenGift);
+
+      // Mini Game 2: Card Deck
+      const drawnCard = document.getElementById('drawnCard');
+      const cardInner = document.getElementById('cardInner');
+      const drawCardBtn = document.getElementById('drawCardBtn');
+      const cardCategory = document.getElementById('cardCategory');
+      const cardTask = document.getElementById('cardTask');
+      const cardCode = document.getElementById('cardCode');
+
+      const suggestionCards = [
+        { cat: "Gaming Quest", task: "Hop into Minecraft and build a hidden 2-player treehouse together!", code: "QUEST 01" },
+        { cat: "Squad Action", task: "Drop into a Free Fire Duo match and aim for the Booyah!", code: "QUEST 02" },
+        { cat: "FPS Challenge", task: "Play a quick round of Blood Strike and see who gets the highest kill-streak!", code: "QUEST 03" },
+        { cat: "Music Exchange", task: "Share your top 3 current lo-fi/favorite songs with each other!", code: "QUEST 04" },
+        { cat: "Poetry Collab", task: "Write a 4-line poem together where each person writes alternate lines!", code: "QUEST 05" },
+        { cat: "Meme Sharing", task: "Send each other the funniest meme or reel you saved this week!", code: "QUEST 06" },
+        { cat: "Creative Brainstorm", task: "Design an imaginary gaming clan logo or aesthetic banner together!", code: "QUEST 07" }
+      ];
+
+      let cardIndex = 0;
+      function drawNewCard() {
+        cardInner.classList.remove('flipped');
+        setTimeout(() => {
+          cardIndex = (cardIndex + 1) % suggestionCards.length;
+          const card = suggestionCards[cardIndex];
+          cardCategory.textContent = card.cat;
+          cardTask.textContent = `"${card.task}"`;
+          cardCode.textContent = card.code;
+          cardInner.classList.add('flipped');
+        }, 280);
+      }
+      if (drawCardBtn) drawCardBtn.addEventListener('click', drawNewCard);
+      if (drawnCard) drawnCard.addEventListener('click', drawNewCard);
+
+      // Mini Game 3: Cyber Squad Aura & Rank Scanner
+      let currentMode = 'FREE FIRE';
+      const modePills = document.querySelectorAll('.mode-pill');
+      const auraModeSub = document.getElementById('auraModeSub');
+      const auraRoleName = document.getElementById('auraRoleName');
+      const auraRankChip = document.getElementById('auraRankChip');
+      const aimVal = document.getElementById('aimVal');
+      const aimBar = document.getElementById('aimBar');
+      const iqVal = document.getElementById('iqVal');
+      const iqBar = document.getElementById('iqBar');
+      const vibeVal = document.getElementById('vibeVal');
+      const vibeBar = document.getElementById('vibeBar');
+      const auraVerdict = document.getElementById('auraVerdict');
+      const scanAuraBtn = document.getElementById('scanAuraBtn');
+
+      const auraTiers = [
+        { rank: 'SS+ MYTHIC', role: 'Clutch Commander', aim: 99, iq: 96, vibe: 99, verdict: 'Unstoppable 1v4 energy! Squad morale skyrockets when you join the lobby.' },
+        { rank: 'S+ LEGEND', role: 'Redstone Architect', aim: 92, iq: 99, vibe: 95, verdict: 'Mastermind builder & tactician. Every base and rotation is 200 IQ.' },
+        { rank: 'S-TIER PRO', role: 'Motion Vanguard', aim: 94, iq: 91, vibe: 94, verdict: 'Frame-perfect reflexes! Clean cuts in editing and zero-recoil precision in combat.' },
+        { rank: 'SS SHADOW', role: 'Sniper Striker', aim: 98, iq: 94, vibe: 96, verdict: 'Silent, lethal, and always holding the winning angle for the squad in Dhaka.' },
+        { rank: 'MYTHIC VIP', role: 'Night Owl Creator', aim: 93, iq: 97, vibe: 98, verdict: 'Peak 2 AM creative flow state unlocked! Code, edits, and gaming at maximum power.' }
+      ];
+
+      modePills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          modePills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentMode = pill.getAttribute('data-mode') || 'FREE FIRE';
+          if (auraModeSub) auraModeSub.textContent = `SQUAD CLASS (${currentMode})`;
+        });
+      });
+
+      if (scanAuraBtn) {
+        scanAuraBtn.addEventListener('click', () => {
+          scanAuraBtn.disabled = true;
+          scanAuraBtn.textContent = 'SCANNING AURA...';
+          let step = 0;
+          const interval = setInterval(() => {
+            const rAim = Math.floor(Math.random() * 25) + 75;
+            const rIq = Math.floor(Math.random() * 25) + 75;
+            const rVibe = Math.floor(Math.random() * 20) + 80;
+            auraRankChip.textContent = 'SCAN...';
+            auraRoleName.textContent = `${currentMode} LOBBY`;
+            aimVal.textContent = rAim + '%';
+            aimBar.style.width = rAim + '%';
+            iqVal.textContent = rIq + '%';
+            iqBar.style.width = rIq + '%';
+            vibeVal.textContent = rVibe + '%';
+            vibeBar.style.width = rVibe + '%';
+            step++;
+            if (step > 9) {
+              clearInterval(interval);
+              const picked = auraTiers[Math.floor(Math.random() * auraTiers.length)];
+              auraRankChip.textContent = picked.rank;
+              auraRoleName.textContent = picked.role;
+              aimVal.textContent = picked.aim + '%';
+              aimBar.style.width = picked.aim + '%';
+              iqVal.textContent = picked.iq + '%';
+              iqBar.style.width = picked.iq + '%';
+              vibeVal.textContent = picked.vibe + '%';
+              vibeBar.style.width = picked.vibe + '%';
+              auraVerdict.textContent = picked.verdict;
+              scanAuraBtn.textContent = 'Boost Squad Aura';
+              scanAuraBtn.disabled = false;
+            }
+          }, 65);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
