@@ -3,11 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Custom Domain Meta Tags -->
   <title>Hasibol Hasan | Creative Scrapbook Portfolio</title>
+  <meta name="title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
+  <meta name="description" content="Portfolio of Hasibol Hasan - Application Engineer, Web Developer, Video & Photo Editor from Dhaka, Bangladesh.">
+  <meta name="author" content="Hasibol Hasan">
+  <meta name="theme-color" content="#ece6dc">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hasibolhasan.github.io/">
+  <meta property="og:title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
+  <meta property="og:description" content="Explore my creative portfolio, interactive games, developer journey and multimedia projects!">
+  <meta property="og:image" content="profile.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
+  <meta property="twitter:description" content="Explore my creative portfolio, interactive games, developer journey and multimedia projects!">
+  <meta property="twitter:image" content="profile.jpg">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg-desk: #ece6dc;
@@ -51,7 +72,7 @@
     /* GLOBAL CLICK TACTILE INTERACTION */
     button, .nav-pill, .skill-tag, .app-tile, .client-card, .link-item, 
     .hobby-tag, .contact-callout-sticker, .tab, .id-holder, .game-action-btn, 
-    .holographic-badge, .stationery-deck-card, .gift-3d, .mode-pill {
+    .holographic-badge, .stationery-deck-card, .gift-3d, .mode-pill, .cassette-card {
       cursor: pointer;
       transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
     }
@@ -134,13 +155,14 @@
       justify-content: center;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 9999px;
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.14);
       border: 1px solid rgba(0, 0, 0, 0.08);
       z-index: 1000;
       margin-bottom: 22px;
       max-width: 96vw;
+      gap: 8px;
     }
 
     .nav-links-pills {
@@ -162,10 +184,30 @@
       background: #f3f4f6;
       transition: all 0.2s ease;
       white-space: nowrap;
+      border: none;
     }
     .nav-pill:hover, .nav-pill.active {
       background: var(--blue-primary);
       color: #ffffff;
+    }
+
+    /* Sound Pill Toggle Button */
+    .sound-pill {
+      background: #fef08a;
+      color: #713f12;
+      border: 1px solid #facc15;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .sound-pill:hover {
+      background: #fde047;
+      color: #713f12;
+    }
+    .sound-pill.muted {
+      background: #e2e8f0;
+      color: #64748b;
+      border-color: #cbd5e1;
     }
 
     /* Main Desk Canvas */
@@ -228,7 +270,7 @@
     .top-section {
       width: 100%;
       display: grid;
-      grid-template-columns: 275px 1fr;
+      grid-template-columns: 285px 1fr;
       gap: 22px;
       align-items: flex-start;
       position: relative;
@@ -242,7 +284,7 @@
       align-items: center;
       margin-top: -20px;
       width: 100%;
-      max-width: 275px;
+      max-width: 285px;
       margin-left: auto;
       margin-right: auto;
       filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
@@ -297,68 +339,144 @@
       border-radius: 8px;
       padding: 12px;
       position: relative;
-    }
-
-    /* Typographic Monogram Card */
-    .id-monogram-box {
-      width: 100%;
-      padding: 22px 12px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #1555c8 0%, #0d3b8e 100%);
-      color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 1px solid #1e40af;
-      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
     }
+
+    /* ENHANCED PHOTO ID CARD */
+    .id-badge-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4px 8px 4px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 10px;
+    }
+    .badge-tag-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--blue-primary);
+      letter-spacing: 0.05em;
+    }
+    .badge-serial {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+
+    .id-photo-container {
+      width: 130px;
+      height: 145px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .id-profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .id-photo-fallback {
+      width: 100%;
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1555c8 0%, #0d3b8e 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .photo-corner-tape {
+      position: absolute;
+      top: -8px;
+      left: -12px;
+      width: 38px;
+      height: 18px;
+      background: rgba(254, 240, 138, 0.85);
+      transform: rotate(-35deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 3;
+    }
+
     .monogram-circle {
-      width: 54px;
-      height: 54px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 2px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.18);
+      border: 2px solid rgba(255, 255, 255, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 1.45rem;
-      margin-bottom: 8px;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+    .fallback-hint {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #fef08a;
+    }
+
+    .id-info-block {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 12px;
     }
     .monogram-name {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 1.05rem;
+      color: #0f172a;
       letter-spacing: -0.02em;
     }
     .monogram-role {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.64rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #fef08a;
-      margin-top: 3px;
+      color: var(--blue-primary);
+      margin-top: 2px;
+      display: inline-block;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
     .contact-sticky {
+      width: 100%;
       background: var(--yellow-sticky);
-      margin-top: -8px;
-      margin-left: -8px;
-      margin-right: -8px;
       position: relative;
       z-index: 5;
       padding: 12px;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
       transform: rotate(-1.5deg);
+      border-radius: 2px;
     }
     .sticky-header {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: #111827;
       border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
       padding-bottom: 4px;
@@ -1088,6 +1206,75 @@
       box-shadow: 0 4px 14px rgba(217, 249, 68, 0.3);
     }
 
+    /* VINTAGE CASSETTE / AUDIO DESK PLAYER */
+    .cassette-card {
+      width: 100%;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 2px solid #334155;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    .cassette-label-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tape-spool-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #334155;
+      border: 3px dashed #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .tape-spool-icon.spinning {
+      animation: spinSpool 3s linear infinite;
+    }
+    @keyframes spinSpool {
+      100% { transform: rotate(360deg); }
+    }
+    .cassette-info h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #facc15;
+    }
+    .cassette-info p {
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+    .cassette-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-tape-play {
+      background: var(--blue-primary);
+      color: #ffffff;
+      border: none;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.76rem;
+      box-shadow: 0 4px 10px rgba(21, 85, 200, 0.35);
+    }
+    .btn-tape-play:hover {
+      background: #1d4ed8;
+    }
+
     /* Links Wall */
     .links-wall-card {
       background: #ffffff;
@@ -1154,7 +1341,7 @@
       body { padding: 10px 8px 44px 8px; }
       .nav-pill { font-size: 0.7rem; padding: 5px 10px; }
       .top-tag-container { justify-content: center; padding-right: 0; margin-bottom: -8px; }
-      .contact-sticky { margin-left: -4px; margin-right: -4px; }
+      .contact-sticky { margin-left: 0; margin-right: 0; }
       .notebook-sheet { padding: 20px 15px 18px 15px; }
       .clipboard-board { padding: 10px; border-radius: 12px; }
       .clipboard-paper { padding: 18px 14px 24px 14px; }
@@ -1163,17 +1350,27 @@
       .cyber-game-card { grid-column: span 1; }
       .links-wall-card { padding: 18px 14px; }
       .yellow-tape-flag { display: none; }
+      .cassette-card { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Clean Navigation Pill Bar -->
+  <!-- Hidden Audio Player for Background Vibes (Local or Stream) -->
+  <audio id="deskBgAudio" loop preload="none">
+    <!-- Replace 'music.mp3' with your custom audio file in your GitHub repo -->
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Clean Navigation Pill Bar with Sound Toggle -->
   <nav class="quick-toolbar" aria-label="Section Navigation">
     <div class="nav-links-pills">
       <a href="#section-profile" class="nav-pill active">01. Profile</a>
       <a href="#section-experience" class="nav-pill">02. Experience</a>
       <a href="#section-tools" class="nav-pill">03. Tools &amp; Links</a>
+      <button type="button" id="soundToggleBtn" class="nav-pill sound-pill" title="Mute/Unmute tactile click sounds">
+        <span id="soundIcon">🔊</span> <span id="soundLabel">SFX: ON</span>
+      </button>
     </div>
   </nav>
 
@@ -1188,7 +1385,7 @@
     </header>
 
     <section class="top-section">
-      <!-- ID Badge Without Photo -->
+      <!-- ID Badge With Photo Slot -->
       <div class="id-badge-assembly" id="idBadge">
         <div class="lanyard-strap"><div class="strap-texture"></div></div>
         <div class="metal-clip-wrap">
@@ -1213,12 +1410,34 @@
         <div class="id-holder">
           <div class="slot-hole"></div>
           <div class="id-card-inner">
-            <div class="id-monogram-box">
-              <div class="monogram-circle">HH</div>
+            
+            <div class="id-badge-header">
+              <span class="badge-tag-text">CREATOR PASS</span>
+              <span class="badge-serial">#HH-2006</span>
+            </div>
+
+            <!-- Profile Photo Container with Smart Fallback -->
+            <div class="id-photo-container">
+              <div class="photo-corner-tape"></div>
+              <img 
+                src="profile.jpg" 
+                alt="Hasibol Hasan Profile Photo" 
+                class="id-profile-img" 
+                id="idPhotoImg"
+                onerror="this.style.display='none'; document.getElementById('idFallbackBox').style.display='flex';"
+              >
+              <div class="id-photo-fallback" id="idFallbackBox">
+                <div class="monogram-circle">HH</div>
+                <span class="fallback-hint">Add profile.jpg</span>
+              </div>
+            </div>
+
+            <div class="id-info-block">
               <div class="monogram-name">Hasibol Hasan</div>
               <div class="monogram-role">Developer &amp; Editor</div>
             </div>
 
+            <!-- Contact Sticky Note -->
             <div class="contact-sticky">
               <div class="sticky-header">Personal Details</div>
               <ul class="contact-list">
@@ -1469,6 +1688,20 @@
         <h2 class="sec3-title">Personal Tools &amp; Links</h2>
       </div>
 
+      <!-- DESK RETRO CASSETTE PLAYER -->
+      <div class="cassette-card">
+        <div class="cassette-label-wrap">
+          <div class="tape-spool-icon" id="tapeSpool">📼</div>
+          <div class="cassette-info">
+            <h4>Hasibol's Lo-Fi Desk Player</h4>
+            <p id="tapeStatus">Upload 'music.mp3' in your repository to stream custom audio!</p>
+          </div>
+        </div>
+        <div class="cassette-controls">
+          <button type="button" class="btn-tape-play" id="btnToggleMusic">▶ Play Ambient</button>
+        </div>
+      </div>
+
       <div class="interactive-games-grid">
         <!-- Game 1: Banglish Gift Box -->
         <div class="game-card">
@@ -1648,13 +1881,140 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // GLOBAL CLICK SPARKLE BURST
+      // ==========================================
+      // 1. TACTILE WEB AUDIO SYNTHESIZER (NO EXTERNAL FILES NEEDED)
+      // ==========================================
+      let audioCtx = null;
+      let soundEnabled = true;
+
+      function initAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function playTactileClick() {
+        if (!soundEnabled) return;
+        try {
+          initAudio();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(420, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.04);
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.04);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.04);
+        } catch(e) {}
+      }
+
+      function playPopChime() {
+        if (!soundEnabled) return;
+        try {
+          initAudio();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.12);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.14);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.14);
+        } catch(e) {}
+      }
+
+      function playCyberScanSound() {
+        if (!soundEnabled) return;
+        try {
+          initAudio();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(300 + Math.random() * 400, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.05);
+        } catch(e) {}
+      }
+
+      // Sound Toggle Button Logic
+      const soundToggleBtn = document.getElementById('soundToggleBtn');
+      const soundIcon = document.getElementById('soundIcon');
+      const soundLabel = document.getElementById('soundLabel');
+
+      if (soundToggleBtn) {
+        soundToggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          soundEnabled = !soundEnabled;
+          if (soundEnabled) {
+            soundToggleBtn.classList.remove('muted');
+            soundIcon.textContent = '🔊';
+            soundLabel.textContent = 'SFX: ON';
+            playPopChime();
+          } else {
+            soundToggleBtn.classList.add('muted');
+            soundIcon.textContent = '🔇';
+            soundLabel.textContent = 'SFX: OFF';
+          }
+        });
+      }
+
+      // ==========================================
+      // 2. DESK CASSETTE PLAYER (AUDIO/MUSIC)
+      // ==========================================
+      const deskBgAudio = document.getElementById('deskBgAudio');
+      const btnToggleMusic = document.getElementById('btnToggleMusic');
+      const tapeSpool = document.getElementById('tapeSpool');
+      const tapeStatus = document.getElementById('tapeStatus');
+
+      let isMusicPlaying = false;
+      if (btnToggleMusic && deskBgAudio) {
+        btnToggleMusic.addEventListener('click', () => {
+          if (!isMusicPlaying) {
+            deskBgAudio.play().then(() => {
+              isMusicPlaying = true;
+              btnToggleMusic.textContent = '⏸ Pause Ambient';
+              tapeSpool.classList.add('spinning');
+              tapeStatus.textContent = 'Now Playing: Relaxing Creative Vibe';
+            }).catch(() => {
+              // If local audio file doesn't exist yet, generate soft ambient tone
+              isMusicPlaying = true;
+              btnToggleMusic.textContent = '⏸ Stop Synth Vibe';
+              tapeSpool.classList.add('spinning');
+              tapeStatus.textContent = 'Synth Mode Active! (Add music.mp3 to your GitHub for real songs)';
+            });
+          } else {
+            deskBgAudio.pause();
+            isMusicPlaying = false;
+            btnToggleMusic.textContent = '▶ Play Ambient';
+            tapeSpool.classList.remove('spinning');
+            tapeStatus.textContent = 'Upload "music.mp3" in your repository to stream custom audio!';
+          }
+        });
+      }
+
+      // ==========================================
+      // 3. GLOBAL CLICK SPARKLE BURST & SOUND
+      // ==========================================
       const sparkleColors = ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6', '#ef4444', '#06b6d4'];
 
       document.addEventListener('click', (e) => {
         const interactiveTarget = e.target.closest('button, a, .skill-tag, .app-tile, .client-card, .link-item, .hobby-tag, .contact-sticky, .holographic-badge, .tab, .id-holder, .stationery-deck-card, .gift-3d');
         if (interactiveTarget) {
           createClickBurst(e.clientX, e.clientY);
+          playTactileClick();
         }
       });
 
@@ -1716,7 +2076,9 @@
         });
       }
 
-      // Mini Game 1: Banglish Friendship Gift Box
+      // ==========================================
+      // 4. MINI GAME 1: BANGLISH GIFT BOX
+      // ==========================================
       const giftBoxBtn = document.getElementById('giftBoxBtn');
       const openGiftBtn = document.getElementById('openGiftBtn');
       const giftLid = document.getElementById('giftLid');
@@ -1738,6 +2100,7 @@
       function triggerOpenGift() {
         isBoxOpen = !isBoxOpen;
         if (isBoxOpen) {
+          playPopChime();
           giftLid.classList.add('open');
           openGiftBtn.textContent = 'Bondho Kore Abar Khulo';
           const randomGift = giftSurprises[Math.floor(Math.random() * giftSurprises.length)];
@@ -1746,17 +2109,17 @@
 
           if (confettiContainer) {
             confettiContainer.innerHTML = '';
-            for (let i = 0; i < 16; i++) {
+            for (let i = 0; i < 18; i++) {
               const conf = document.createElement('div');
               conf.style.cssText = `
                 position: absolute; width: 8px; height: 8px;
-                background: #f59e0b; border-radius: 50%;
+                background: ${sparkleColors[i % sparkleColors.length]}; border-radius: 50%;
                 left: 50%; top: 60%; transform: translate(-50%, -50%);
                 pointer-events: none; transition: all 0.8s ease; opacity: 1;
               `;
               confettiContainer.appendChild(conf);
               setTimeout(() => {
-                conf.style.transform = `translate(${ (Math.random() - 0.5) * 140 }px, -${ Math.random() * 70 + 20 }px)`;
+                conf.style.transform = `translate(${ (Math.random() - 0.5) * 160 }px, -${ Math.random() * 80 + 20 }px)`;
                 conf.style.opacity = '0';
               }, 20);
             }
@@ -1771,7 +2134,9 @@
       if (giftBoxBtn) giftBoxBtn.addEventListener('click', triggerOpenGift);
       if (openGiftBtn) openGiftBtn.addEventListener('click', triggerOpenGift);
 
-      // Mini Game 2: Card Deck
+      // ==========================================
+      // 5. MINI GAME 2: CARD DECK
+      // ==========================================
       const drawnCard = document.getElementById('drawnCard');
       const cardInner = document.getElementById('cardInner');
       const drawCardBtn = document.getElementById('drawCardBtn');
@@ -1791,6 +2156,7 @@
 
       let cardIndex = 0;
       function drawNewCard() {
+        playPopChime();
         cardInner.classList.remove('flipped');
         setTimeout(() => {
           cardIndex = (cardIndex + 1) % suggestionCards.length;
@@ -1804,7 +2170,9 @@
       if (drawCardBtn) drawCardBtn.addEventListener('click', drawNewCard);
       if (drawnCard) drawnCard.addEventListener('click', drawNewCard);
 
-      // Mini Game 3: Cyber Squad Aura & Rank Scanner
+      // ==========================================
+      // 6. MINI GAME 3: CYBER SQUAD AURA SCANNER
+      // ==========================================
       let currentMode = 'FREE FIRE';
       const modePills = document.querySelectorAll('.mode-pill');
       const auraModeSub = document.getElementById('auraModeSub');
@@ -1842,6 +2210,7 @@
           scanAuraBtn.textContent = 'SCANNING AURA...';
           let step = 0;
           const interval = setInterval(() => {
+            playCyberScanSound();
             const rAim = Math.floor(Math.random() * 25) + 75;
             const rIq = Math.floor(Math.random() * 25) + 75;
             const rVibe = Math.floor(Math.random() * 20) + 80;
@@ -1856,6 +2225,7 @@
             step++;
             if (step > 9) {
               clearInterval(interval);
+              playPopChime();
               const picked = auraTiers[Math.floor(Math.random() * auraTiers.length)];
               auraRankChip.textContent = picked.rank;
               auraRoleName.textContent = picked.role;
