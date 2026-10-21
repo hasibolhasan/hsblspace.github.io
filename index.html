@@ -4,37 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO & Custom Domain Meta Tags -->
-  <title>Hasibol Hasan | Creative Scrapbook Portfolio</title>
-  <meta name="title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
+  <title>Hasibol Hasan | Creative Portfolio</title>
+  <meta name="title" content="Hasibol Hasan | Creative Portfolio">
   <meta name="description" content="Portfolio of Hasibol Hasan - Application Engineer, Web Developer, Video & Photo Editor from Dhaka, Bangladesh.">
   <meta name="author" content="Hasibol Hasan">
   <meta name="theme-color" content="#ece6dc">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A8%3C/text%3E%3C/svg%3E">
+  <script>
+    /* Profile photo loader: tries several common file names (GitHub Pages is case-sensitive) */
+    function __nextPhoto(img) {
+      var list = (img.dataset.fallbacks || '').split(',').filter(Boolean);
+      var i = +(img.dataset.i || 0);
+      if (i < list.length) { img.dataset.i = i + 1; img.src = list[i]; }
+      else { img.style.display = 'none'; }
+    }
+  </script>
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Social Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hasibolhasan.github.io/">
-  <meta property="og:title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
+  <meta property="og:title" content="Hasibol Hasan | Creative Portfolio">
   <meta property="og:description" content="Explore my creative portfolio, interactive games, developer journey and multimedia projects!">
   <meta property="og:image" content="profile.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Hasibol Hasan | Creative Scrapbook Portfolio">
-  <meta property="twitter:description" content="Explore my creative portfolio, interactive games, developer journey and multimedia projects!">
-  <meta property="twitter:image" content="profile.jpg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-desk: #ece6dc;
       --blue-primary: #1555c8;
       --blue-dark: #0d3b8e;
-      --blue-tape: #1454c6;
       --paper-cream: #faf7ee;
       --paper-white: #ffffff;
       --yellow-sticky: #fef08a;
@@ -45,7 +47,9 @@
       --yellow-border: #facc15;
       --cyan-card: #e0f2fe;
       --cyan-border: #38bdf8;
-      --board-dark: #27282b;
+      --board-dark: #1e2430;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,82 +59,67 @@
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-desk);
       background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0, 0, 0, 0.015) 40px, rgba(0, 0, 0, 0.015) 41px);
-      color: #1f2937;
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(0, 0, 0, 0.035) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0, 0, 0, 0.02) 39px, rgba(0, 0, 0, 0.02) 40px);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 12px 56px 12px;
+      padding: 20px 16px 64px 16px;
       overflow-x: hidden;
       -webkit-tap-highlight-color: transparent;
-      user-select: none;
     }
 
-    /* GLOBAL CLICK TACTILE INTERACTION */
+    /* GLOBAL TACTILE INTERACTION */
     button, .nav-pill, .skill-tag, .app-tile, .client-card, .link-item, 
-    .hobby-tag, .contact-callout-sticker, .tab, .id-holder, .game-action-btn, 
-    .holographic-badge, .stationery-deck-card, .gift-3d, .mode-pill, .cassette-card {
+    .hobby-tag, .contact-callout-sticker, .tab-pill, .game-action-btn, 
+    .stationery-deck-card, .gift-3d, .mode-pill {
       cursor: pointer;
       transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
     }
 
     button:active, .nav-pill:active, .game-action-btn:active, .mode-pill:active {
-      transform: scale(0.93) translateY(2px) !important;
+      transform: scale(0.95) translateY(1px) !important;
     }
 
     .skill-tag:active, .app-tile:active {
-      transform: scale(0.88) rotate(-4deg) !important;
+      transform: scale(0.90) rotate(-3deg) !important;
     }
 
     .client-card:active, .link-item:active {
-      transform: scale(0.97) translateX(4px) !important;
-    }
-
-    .hobby-tag:active {
-      transform: scale(0.96) rotate(1deg) !important;
+      transform: scale(0.98) translateX(4px) !important;
     }
 
     /* Keyframe Animations */
     @keyframes stickerWiggle {
       0% { transform: rotate(0deg) scale(1); }
-      20% { transform: rotate(-8deg) scale(1.12); }
-      40% { transform: rotate(6deg) scale(1.1); }
-      60% { transform: rotate(-4deg) scale(1.05); }
-      80% { transform: rotate(2deg) scale(1.02); }
+      20% { transform: rotate(-6deg) scale(1.08); }
+      40% { transform: rotate(5deg) scale(1.06); }
+      60% { transform: rotate(-3deg) scale(1.03); }
       100% { transform: rotate(0deg) scale(1); }
     }
 
     @keyframes clickPopSquish {
       0% { transform: scale(1); }
-      35% { transform: scale(0.88, 1.15) translateY(-4px); }
-      65% { transform: scale(1.12, 0.9) translateY(2px); }
-      85% { transform: scale(0.98, 1.02); }
+      40% { transform: scale(0.90, 1.12); }
+      70% { transform: scale(1.08, 0.94); }
       100% { transform: scale(1); }
     }
 
     @keyframes badgeLanyardSwing {
       0% { transform: rotate(0deg); }
-      20% { transform: rotate(6deg) translateY(-2px); }
-      40% { transform: rotate(-5deg) translateY(1px); }
-      60% { transform: rotate(3deg); }
-      80% { transform: rotate(-1.5deg); }
+      20% { transform: rotate(4.5deg); }
+      40% { transform: rotate(-3.5deg); }
+      60% { transform: rotate(2deg); }
+      80% { transform: rotate(-1deg); }
       100% { transform: rotate(0deg); }
     }
 
-    @keyframes noteFlutter {
-      0% { transform: rotate(-1.5deg) scale(1); }
-      30% { transform: rotate(-5deg) scale(1.04) translateY(-3px); }
-      60% { transform: rotate(1deg) scale(0.98); }
-      100% { transform: rotate(-1.5deg) scale(1); }
-    }
-
-    .animate-wiggle { animation: stickerWiggle 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-    .animate-squish { animation: clickPopSquish 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-    .animate-swing { transform-origin: top center; animation: badgeLanyardSwing 0.8s ease-in-out forwards; }
-    .animate-flutter { animation: noteFlutter 0.4s ease forwards; }
+    .animate-wiggle { animation: stickerWiggle 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .animate-squish { animation: clickPopSquish 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .animate-swing { transform-origin: top center; animation: badgeLanyardSwing 0.75s ease-in-out forwards; }
 
     /* Click Sparkle Particles */
     .click-sparkle {
@@ -138,37 +127,34 @@
       pointer-events: none;
       z-index: 99999;
       border-radius: 50%;
-      animation: sparkleFly 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: sparkleFly 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes sparkleFly {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
-      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0) rotate(180deg); }
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0); }
     }
 
-    /* Floating Navigation Pill Bar */
+    /* Top Floating Navigation Bar */
     .quick-toolbar {
       position: sticky;
-      top: 8px;
+      top: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      padding: 6px 10px;
       border-radius: 9999px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(0, 0, 0, 0.08);
       z-index: 1000;
-      margin-bottom: 22px;
-      max-width: 96vw;
-      gap: 8px;
+      margin-bottom: 32px;
+      max-width: 95vw;
     }
 
     .nav-links-pills {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       align-items: center;
       gap: 6px;
     }
@@ -176,214 +162,168 @@
     .nav-pill {
       text-decoration: none;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.76rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #4b5563;
-      padding: 6px 13px;
+      padding: 7px 16px;
       border-radius: 9999px;
       background: #f3f4f6;
       transition: all 0.2s ease;
       white-space: nowrap;
-      border: none;
     }
     .nav-pill:hover, .nav-pill.active {
       background: var(--blue-primary);
       color: #ffffff;
     }
 
-    /* Sound Pill Toggle Button */
-    .sound-pill {
-      background: #fef08a;
-      color: #713f12;
-      border: 1px solid #facc15;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .sound-pill:hover {
-      background: #fde047;
-      color: #713f12;
-    }
-    .sound-pill.muted {
-      background: #e2e8f0;
-      color: #64748b;
-      border-color: #cbd5e1;
-    }
-
-    /* Main Desk Canvas */
+    /* Main Container Canvas */
     .desk-canvas {
       width: 100%;
-      max-width: 920px;
-      position: relative;
+      max-width: 980px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 26px;
+      gap: 36px;
     }
 
     .section-anchor {
       position: relative;
-      top: -80px;
+      top: -85px;
       visibility: hidden;
+      height: 0;
     }
 
-    .top-tag-container {
+    /* Section Headers */
+    .section-header-banner {
       width: 100%;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
-      padding-right: 20px;
-      margin-bottom: -14px;
-      z-index: 20;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: -16px;
+      z-index: 10;
     }
 
-    .section-number-tag {
+    .section-pill-badge {
       background: #facc15;
       color: #713f12;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
-      font-size: 0.82rem;
-      padding: 5px 11px;
-      border-radius: 4px;
-      transform: rotate(-3deg);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transform: rotate(-1.5deg);
     }
 
-    .about-me-tag {
+    .section-main-title {
       background: var(--blue-primary);
       color: #ffffff;
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.35rem, 4vw, 2.45rem);
+      font-size: clamp(1.2rem, 3.2vw, 1.85rem);
       font-weight: 800;
-      letter-spacing: -0.04em;
-      padding: 8px 26px;
-      box-shadow: 0 8px 20px rgba(21, 85, 200, 0.35);
-      border-radius: 2px;
+      letter-spacing: -0.03em;
+      padding: 8px 22px;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(21, 85, 200, 0.28);
       text-transform: lowercase;
-      transform: rotate(-0.5deg);
     }
 
-    /* Section 01: Profile & Intro */
+    /* SECTION 01: Profile & Bio Layout */
     .top-section {
       width: 100%;
       display: grid;
-      grid-template-columns: 285px 1fr;
-      gap: 22px;
-      align-items: flex-start;
-      position: relative;
-      z-index: 10;
+      grid-template-columns: 310px 1fr;
+      gap: 28px;
+      align-items: stretch;
     }
 
+    /* Professional Creator ID Badge */
     .id-badge-assembly {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -20px;
       width: 100%;
-      max-width: 285px;
-      margin-left: auto;
-      margin-right: auto;
-      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
+      filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.14));
       transform-origin: top center;
     }
 
     .lanyard-strap {
-      width: 46px;
-      height: 56px;
+      width: 44px;
+      height: 48px;
       background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #1e40af 100%);
       border-radius: 4px 4px 0 0;
-      position: relative;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-    }
-    .strap-texture {
-      width: 100%;
-      height: 100%;
-      background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15) 4px, transparent 4px, transparent 8px);
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.25);
     }
 
     .metal-clip-wrap {
-      position: relative;
       margin-top: -6px;
-      margin-bottom: -10px;
+      margin-bottom: -8px;
       z-index: 2;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
     }
 
     .id-holder {
       width: 100%;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.95);
-      border-radius: 14px;
-      padding: 14px 12px 16px 12px;
-      position: relative;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 16px;
+      padding: 16px 14px 16px 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .slot-hole {
-      width: 52px;
-      height: 10px;
+      width: 46px;
+      height: 8px;
       background: #374151;
       border-radius: 9999px;
-      margin: 0 auto 12px auto;
-      border: 2px solid #e5e7eb;
+      margin: 0 auto 4px auto;
     }
 
-    .id-card-inner {
+    .id-card-content {
       background: #ffffff;
-      border-radius: 8px;
-      padding: 12px;
-      position: relative;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
 
-    /* ENHANCED PHOTO ID CARD */
-    .id-badge-header {
+    .id-card-meta {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 4px 8px 4px;
-      border-bottom: 2px solid #e2e8f0;
-      margin-bottom: 10px;
-    }
-    .badge-tag-text {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: var(--blue-primary);
-      letter-spacing: 0.05em;
-    }
-    .badge-serial {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      color: #94a3b8;
+      color: #64748b;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
     }
 
-    .id-photo-container {
+    .id-photo-frame {
       width: 130px;
       height: 145px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+      border-radius: 10px;
+      background: #f1f5f9;
       border: 3px solid #ffffff;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
       overflow: hidden;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
-    .id-profile-img {
+    .id-photo-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -392,262 +332,257 @@
     }
 
     .id-photo-fallback {
+      display: none;
       width: 100%;
       height: 100%;
-      display: none;
+      background: linear-gradient(135deg, #1555c8 0%, #0d3b8e 100%);
+      color: #ffffff;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1555c8 0%, #0d3b8e 100%);
-      color: #ffffff;
-      text-align: center;
       padding: 8px;
     }
 
-    .photo-corner-tape {
-      position: absolute;
-      top: -8px;
-      left: -12px;
-      width: 38px;
-      height: 18px;
-      background: rgba(254, 240, 138, 0.85);
-      transform: rotate(-35deg);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      z-index: 3;
-    }
-
     .monogram-circle {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.18);
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-bottom: 4px;
     }
-    .fallback-hint {
+
+    .fallback-text {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.62rem;
       font-weight: 700;
       color: #fef08a;
     }
 
-    .id-info-block {
-      text-align: center;
-      width: 100%;
-      margin-bottom: 12px;
-    }
-    .monogram-name {
+    .id-title-name {
       font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
       font-weight: 800;
-      font-size: 1.05rem;
       color: #0f172a;
       letter-spacing: -0.02em;
     }
-    .monogram-role {
+
+    .id-badge-role {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       color: var(--blue-primary);
-      margin-top: 2px;
-      display: inline-block;
       background: #eff6ff;
-      padding: 2px 8px;
-      border-radius: 4px;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-top: 4px;
     }
 
+    /* Pinned Details Card */
     .contact-sticky {
       width: 100%;
       background: var(--yellow-sticky);
-      position: relative;
-      z-index: 5;
-      padding: 12px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-      transform: rotate(-1.5deg);
-      border-radius: 2px;
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transform: rotate(-0.5deg);
     }
+
     .sticky-header {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: #111827;
       border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
-      padding-bottom: 4px;
-      margin-bottom: 8px;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
     }
-    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .contact-list li {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 8px;
-      font-size: 0.74rem;
+      font-size: 0.78rem;
       font-weight: 600;
     }
+
     .contact-label {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.64rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       color: #4b5563;
     }
+
     .contact-email-item {
       flex-direction: column !important;
-      gap: 2px !important;
-      padding-top: 4px;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-    }
-    .contact-list a { color: #1555c8; font-weight: 700; text-decoration: none; word-break: break-all; font-size: 0.7rem; }
-    .contact-list a:hover { text-decoration: underline; }
-
-    .plastic-shine {
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.15) 100%);
-      pointer-events: none;
+      gap: 3px !important;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(0, 0, 0, 0.15);
     }
 
-    /* Notebook Sheet */
+    .contact-list a {
+      color: #1555c8;
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-all;
+      font-size: 0.74rem;
+    }
+
+    /* Notebook Editorial Sheet */
     .notebook-sheet {
       width: 100%;
-      min-width: 0;
       background: var(--paper-cream);
-      border-radius: 6px;
-      padding: 28px 28px 26px 30px;
-      position: relative;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-      border-top: 14px solid #f1ece1;
-      background-image: repeating-linear-gradient(#faf7ee 0px, #faf7ee 27px, #e2ded5 28px);
-      margin-top: 8px;
-    }
-
-    .binder-holes {
-      position: absolute;
-      top: -10px;
-      left: 14px;
-      right: 14px;
+      border-radius: 12px;
+      padding: 32px 36px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e8e2d5;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
-    }
-    .binder-holes span {
-      width: 8px;
-      height: 8px;
-      background: var(--bg-desk);
-      border-radius: 50%;
-      flex-shrink: 0;
+      gap: 20px;
     }
 
-    .washi-tape-sketch {
-      position: absolute;
-      top: -12px;
-      right: 22px;
-      width: 40px;
-      height: 42px;
-      background: rgba(250, 204, 21, 0.45);
-      transform: rotate(3deg);
+    .note-header-wrap {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 800;
-      color: #713f12;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 2px solid #e9e3d6;
+      padding-bottom: 14px;
     }
 
-    .note-intro-row {
+    .intro-badge-group {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      margin-bottom: 14px;
     }
-    .hello-name-badge {
+
+    .hello-badge {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      border: 1.5px solid #64748b;
-      border-radius: 5px;
+      border: 1.5px solid #94a3b8;
+      border-radius: 6px;
       padding: 2px 8px;
       background: #ffffff;
-      transform: rotate(-2deg);
-      flex-shrink: 0;
     }
-    .hello-tag { font-family: 'Caveat', cursive; font-size: 0.95rem; font-weight: 700; line-height: 1; }
-    .name-sub { font-family: 'Space Grotesk', sans-serif; font-size: 0.58rem; font-weight: 700; color: #64748b; }
+
+    .hello-badge span:first-child { font-family: 'Caveat', cursive; font-size: 0.9rem; font-weight: 700; line-height: 1; }
+    .hello-badge span:last-child { font-family: 'Space Grotesk', sans-serif; font-size: 0.55rem; font-weight: 700; color: #64748b; }
+
     .person-name {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.65rem, 4vw, 2.7rem);
+      font-size: clamp(1.65rem, 3.8vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       color: var(--blue-primary);
-      line-height: 1.05;
+      line-height: 1.1;
     }
 
-    .note-content-body {
-      font-size: 0.86rem;
-      line-height: 1.78;
+    .notebook-tabs-inline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tab-pill {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .tab-dev { background: #0284c7; }
+    .tab-gamer { background: #ea580c; }
+    .tab-poet { background: #eab308; color: #713f12; }
+
+    .note-body-text {
+      font-size: 0.95rem;
+      line-height: 1.72;
       color: #334155;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      user-select: text;
+      gap: 14px;
     }
 
-    .hobbies-scrap-box {
-      margin-top: 14px;
-      background: #fff;
-      border: 1px dashed #cbd5e1;
-      padding: 12px;
-      border-radius: 8px;
+    .hobbies-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
     }
+
     .hobbies-title {
       font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
       font-weight: 700;
-      font-size: 0.84rem;
       color: #0f172a;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .hobby-tag {
-      display: flex;
-      align-items: center;
-      padding: 9px 11px;
-      border-radius: 6px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-    .hobby-gaming { border-left: 3px solid #10b981; }
-    .hobby-writing { border-left: 3px solid #8b5cf6; }
-    .hobby-text { display: flex; flex-direction: column; min-width: 0; }
-    .hobby-text strong { font-size: 0.78rem; color: #1e293b; }
-    .hobby-sub { font-size: 0.69rem; color: #64748b; line-height: 1.35; }
 
-    .note-stickers-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 16px;
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+
+    .hobby-tag {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--blue-primary);
+    }
+    .hobby-gaming { border-left-color: #10b981; }
+    .hobby-writing { border-left-color: #8b5cf6; }
+
+    .hobby-tag strong { font-size: 0.84rem; color: #1e293b; }
+    .hobby-tag span { font-size: 0.74rem; color: #64748b; line-height: 1.4; }
+
+    .note-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
     .contact-callout-sticker {
       font-family: 'Caveat', cursive;
       font-size: 1.25rem;
       font-weight: 700;
       background: var(--yellow-sticky);
-      padding: 5px 14px;
-      border-radius: 2px;
-      transform: rotate(-1.5deg);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 4px 14px;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transform: rotate(-1deg);
     }
 
     .holographic-badge {
@@ -656,313 +591,321 @@
       gap: 8px;
     }
     .holo-core {
-      width: 34px;
-      height: 34px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: conic-gradient(from 180deg at 50% 50%, #ff7676 0deg, #fcd34d 60deg, #34d399 120deg, #38bdf8 180deg, #818cf8 240deg, #f472b6 300deg, #ff7676 360deg);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: conic-gradient(from 180deg at 50% 50%, #ff7676 0deg, #fcd34d 60deg, #34d399 120deg, #38bdf8 180deg, #818cf8 240deg, #ff7676 360deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
       animation: holoSpin 8s linear infinite;
-      flex-shrink: 0;
     }
     @keyframes holoSpin { 100% { transform: rotate(360deg); } }
-    .holo-dot { width: 9px; height: 9px; border-radius: 50%; background: #ffffff; }
-    .holo-text { font-family: 'Caveat', cursive; font-size: 0.95rem; color: #b91c1c; font-weight: 700; line-height: 1.1; }
-
-    .notebook-tabs {
-      position: absolute;
-      top: 110px;
-      right: -24px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .holo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #0f172a;
     }
-    .tab {
-      font-family: 'Caveat', cursive;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 3px 12px 3px 8px;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.12);
-      color: #ffffff;
-    }
-    .tab-blue { background: #38bdf8; }
-    .tab-orange { background: #f97316; }
-    .tab-yellow { background: #eab308; }
 
     /* Washi Ribbon Dividers */
     .washi-banner-divider {
       width: 100%;
-      background: var(--blue-tape);
-      box-shadow: 0 6px 14px rgba(20, 84, 198, 0.28);
-      transform: rotate(-0.5deg);
-      border-radius: 3px;
-      position: relative;
-      z-index: 15;
+      background: var(--blue-primary);
+      border-radius: 6px;
+      box-shadow: 0 6px 16px rgba(21, 85, 200, 0.22);
     }
-    .washi-banner-games { background: #0f172a; transform: rotate(0.5deg); }
+    .washi-banner-games { background: #0f172a; }
     .washi-tape-content {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 8px 14px;
-      padding: 9px 12px;
+      gap: 12px 18px;
+      padding: 10px 16px;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: clamp(0.76rem, 2.2vw, 1.05rem);
+      font-size: clamp(0.78rem, 2vw, 0.98rem);
       color: #ffffff;
       text-align: center;
     }
     .washi-sep { color: #fef08a; }
 
-    /* Section 02: Clipboard */
-    .clipboard-container { width: 100%; position: relative; z-index: 5; }
+    /* SECTION 02: Modern Clipboard Experience */
     .clipboard-board {
+      width: 100%;
       background: var(--board-dark);
-      border-radius: 16px;
-      padding: 22px 20px 28px 46px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 42px 28px 32px 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
       position: relative;
     }
-    .clipboard-clamp {
+
+    /* Clean Center-Anchored Clipboard Clip */
+    .clipboard-top-clip {
       position: absolute;
-      top: 50%;
-      left: -24px;
-      transform: translateY(-50%);
-      z-index: 20;
-      width: 65px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .clamp-metal-body {
-      width: 32px;
-      height: 150px;
-      background: linear-gradient(90deg, #d4af37 0%, #fff2b2 35%, #b8860b 80%, #785a06 100%);
-      border-radius: 4px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-      position: relative;
-    }
-    .clamp-rivet {
-      width: 8px;
-      height: 8px;
-      background: #4b3605;
-      border-radius: 50%;
-      position: absolute;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
+      width: 140px;
+      height: 38px;
+      background: linear-gradient(180deg, #d4af37 0%, #fff2b2 40%, #b8860b 85%, #785a06 100%);
+      border-radius: 6px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 16px;
+      z-index: 20;
     }
-    .rivet-left { top: 18px; }
-    .rivet-right { bottom: 18px; }
-    .clamp-loop-wire {
+    .clip-rivet {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #4b3605;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .clip-wire-loop {
       position: absolute;
-      left: -18px;
-      width: 34px;
-      height: 70px;
-      border: 5px solid #e0c568;
-      border-right: none;
-      border-radius: 16px 0 0 16px;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 22px;
+      border: 4px solid #e0c568;
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
     }
 
     .clipboard-paper {
       background: #ffffff;
-      border-radius: 4px;
-      padding: 28px 28px 34px 28px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-      position: relative;
+      border-radius: 10px;
+      padding: 36px 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
-    .paper-columns-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; }
-    .paper-col-left { display: flex; flex-direction: column; gap: 24px; }
-    .block-section { display: flex; flex-direction: column; gap: 12px; }
+
+    .paper-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 36px;
+    }
+
+    .paper-col {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
     .highlighter-pill {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: clamp(1rem, 2.5vw, 1.22rem);
-      padding: 4px 14px;
-      border-radius: 8px;
+      font-size: 1.15rem;
+      padding: 5px 14px;
+      border-radius: 6px;
       display: inline-block;
       align-self: flex-start;
+      margin-bottom: 12px;
     }
-    .pill-lime { background: var(--lime-neon); color: #1555c8; }
+    .pill-lime { background: var(--lime-neon); color: var(--blue-primary); }
     .pill-yellow { background: #fef08a; color: #0f172a; }
 
-    .timeline-items { display: flex; flex-direction: column; gap: 12px; }
-    .timeline-entry { display: flex; align-items: flex-start; gap: 10px; }
+    .timeline-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .timeline-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
     .year-pill {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      color: #1555c8;
+      color: var(--blue-primary);
       border: 1.5px solid #93c5fd;
-      padding: 2px 8px;
+      padding: 3px 8px;
       border-radius: 9999px;
       background: #f0f7ff;
       flex-shrink: 0;
     }
-    .entry-details { display: flex; flex-direction: column; min-width: 0; }
-    .edu-title { font-size: 0.83rem; font-weight: 700; color: #0f172a; }
-    .edu-sub { font-size: 0.74rem; color: #64748b; }
 
-    .stickers-skill-cloud { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    .tag-typography {
-      background: #fef08a;
-      color: #1e293b;
-      font-family: 'Space Grotesk', sans-serif;
+    .entry-details h4 {
+      font-size: 0.88rem;
       font-weight: 700;
-      font-size: 0.82rem;
-      padding: 6px 12px;
-      border-radius: 4px;
+      color: #0f172a;
     }
-    .tag-video {
-      background: #22c55e;
-      color: #ffffff;
-      padding: 5px 11px 9px 11px;
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      font-size: 0.64rem;
-      font-weight: 700;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+
+    .entry-details p {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin-top: 2px;
     }
-    .tag-photo {
-      background: #dc2626;
-      color: #ffffff;
-      border-radius: 9999px;
-      padding: 6px 14px;
-      font-size: 0.7rem;
-      font-weight: 700;
+
+    .stickers-skill-cloud {
       display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-    .tag-layout {
-      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 5px 11px;
-      display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 8px;
       align-items: center;
-      font-size: 0.72rem;
     }
-    .tag-gaming {
-      background: #6366f1;
-      color: #ffffff;
+
+    .skill-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
       padding: 6px 12px;
       border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
     }
+    .tag-clean { background: #fef08a; color: #1e293b; }
+    .tag-video { background: #22c55e; color: #ffffff; }
+    .tag-photo { background: #dc2626; color: #ffffff; }
+    .tag-story { background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; }
+    .tag-game { background: #6366f1; color: #ffffff; }
 
-    /* Mobile Editing Apps Grid */
+    /* Top 5 Mobile Editing Apps Grid */
     .mobile-tools-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
+      gap: 8px;
       text-align: center;
     }
-    .software-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+    .software-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
     .app-tile {
-      width: 42px;
-      height: 42px;
-      border-radius: 9px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 800;
       font-size: 0.95rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     }
     .tile-cc { background: #111827; color: #38bdf8; border: 2px solid #38bdf8; }
     .tile-lr { background: #001d26; color: #31a8ff; border: 2px solid #ff7b92; }
     .tile-am { background: #064e3b; color: #34d399; border: 2px solid #10b981; }
     .tile-sn { background: #14532d; color: #86efac; border: 2px solid #22c55e; }
     .tile-vn { background: #3b0764; color: #f472b6; border: 2px solid #ec4899; }
-    .app-name { font-size: 0.62rem; font-weight: 600; color: #64748b; line-height: 1.15; }
 
-    /* Right Column: Experience */
-    .paper-col-right { display: flex; flex-direction: column; gap: 18px; }
-    .exp-header-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; position: relative; }
-    .section-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--blue-primary); }
+    .app-name {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    /* Right Column: Experience Cards */
+    .exp-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 800;
+      color: var(--blue-primary);
+    }
+
     .approved-stamp {
-      padding: 2px 8px;
-      border: 2px solid #16a34a;
-      border-radius: 6px;
-      transform: rotate(6deg);
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.68rem;
       font-weight: 800;
       color: #16a34a;
-    }
-    .yellow-tape-flag {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 15px;
-      background: #facc15;
-      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+      border: 2px solid #16a34a;
+      padding: 3px 8px;
+      border-radius: 6px;
+      transform: rotate(3deg);
     }
 
-    .exp-job-card { display: flex; flex-direction: column; gap: 10px; }
-    .job-meta-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; }
-    .job-role { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: #0f172a; }
-    .date-badge {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #b45309;
-      background: #fef3c7;
-      border: 1px solid #fde68a;
-      padding: 2px 8px;
-      border-radius: 9999px;
+    .client-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .job-role-sub { font-size: 0.78rem; color: #475569; }
-    .client-cards-stack { display: flex; flex-direction: column; gap: 10px; }
-    .client-card { border-radius: 4px; padding: 10px 12px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06); border-left: 4px solid transparent; }
+
+    .client-card {
+      border-radius: 8px;
+      padding: 14px 16px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      border-left: 4px solid transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
     .card-yellow { background: var(--yellow-card); border-left-color: var(--yellow-border); }
     .card-pink { background: var(--pink-card); border-left-color: var(--pink-border); }
     .card-cyan { background: var(--cyan-card); border-left-color: var(--cyan-border); }
-    .client-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.84rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-    .client-desc { font-size: 0.74rem; color: #475569; line-height: 1.45; }
-    .blue-peach-card { border-top: 1px dashed #e2e8f0; padding-top: 14px; }
-    .job-summary { font-size: 0.76rem; line-height: 1.5; color: #475569; }
 
-    .paper-curl-corner {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.15) 50%, rgba(220,215,200,1) 53%, #fafafa 100%);
-      border-radius: 0 0 4px 0;
-      pointer-events: none;
+    .client-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0f172a;
     }
 
-    /* Section 03: Personal Tools & Links */
+    .client-desc {
+      font-size: 0.78rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .gaming-meta-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gaming-meta-card h5 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .gaming-meta-card p {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* SECTION 03: Interactive Tools & Links */
     .tools-section-container {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 22px;
-      position: relative;
-      z-index: 8;
+      gap: 28px;
     }
-    .sec3-header-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; text-align: center; }
-    .sec3-title { font-family: 'Syne', sans-serif; font-size: clamp(1.45rem, 3.5vw, 2.2rem); font-weight: 800; color: #0f172a; }
 
-    .interactive-games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .interactive-games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
     .game-card {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 20px 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
       border: 1px solid #e2e8f0;
       display: flex;
       flex-direction: column;
@@ -970,66 +913,89 @@
       text-align: center;
       position: relative;
     }
+
     .game-badge {
       position: absolute;
-      top: -10px;
+      top: -11px;
       left: 50%;
       transform: translateX(-50%);
       background: #0f172a;
       color: #facc15;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.64rem;
+      font-size: 0.66rem;
       font-weight: 800;
-      padding: 2px 10px;
+      padding: 3px 12px;
       border-radius: 9999px;
       white-space: nowrap;
     }
-    .game-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-top: 6px; margin-bottom: 6px; }
-    .game-desc { font-size: 0.73rem; color: #64748b; line-height: 1.4; margin-bottom: 14px; min-height: 32px; }
+
+    .game-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .game-desc {
+      font-size: 0.76rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      min-height: 42px;
+    }
 
     .game-action-btn {
       background: var(--blue-primary);
       color: #ffffff;
       border: none;
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: 9999px;
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 0.78rem;
-      box-shadow: 0 4px 12px rgba(21, 85, 200, 0.3);
+      font-size: 0.8rem;
+      box-shadow: 0 4px 12px rgba(21, 85, 200, 0.28);
       margin-top: auto;
+      width: 100%;
     }
 
-    /* CSS Gift Box */
-    .gift-box-stage { width: 100%; height: 90px; display: flex; align-items: center; justify-content: center; position: relative; }
-    .gift-3d { width: 60px; height: 60px; position: relative; }
+    /* Game 1: 3D Gift Box */
+    .gift-box-stage {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gift-3d { width: 56px; height: 56px; position: relative; }
     .gift-lid {
-      width: 64px;
-      height: 20px;
+      width: 62px;
+      height: 18px;
       background: #ef4444;
-      border-bottom: 1px solid #b91c1c;
       border-radius: 3px;
       position: absolute;
       top: 0;
-      left: -2px;
+      left: -3px;
       z-index: 2;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .gift-lid.open { transform: translateY(-28px) rotate(-22deg) scale(1.05); }
-    .gift-ribbon-v { width: 12px; height: 100%; background: #fef08a; }
+    .gift-lid.open { transform: translateY(-26px) rotate(-20deg) scale(1.05); }
+    .gift-ribbon-v { width: 10px; height: 100%; background: #fef08a; }
     .gift-body {
-      width: 60px;
-      height: 44px;
+      width: 56px;
+      height: 42px;
       background: #dc2626;
       border-radius: 0 0 4px 4px;
       position: absolute;
       bottom: 0;
       left: 0;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.16);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1037,28 +1003,36 @@
     .gift-result-card {
       background: #fefce8;
       border: 1px dashed #ca8a04;
-      border-radius: 6px;
-      padding: 8px 10px;
-      margin-bottom: 12px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 16px;
       width: 100%;
-      min-height: 65px;
+      min-height: 72px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .gift-badge-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; color: #854d0e; }
-    .gift-quote { font-family: 'Caveat', cursive; font-size: 0.94rem; font-weight: 700; color: #451a03; line-height: 1.2; margin-top: 2px; }
+    .gift-badge-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 700; color: #854d0e; }
+    .gift-quote { font-family: 'Caveat', cursive; font-size: 0.98rem; font-weight: 700; color: #451a03; line-height: 1.3; margin-top: 2px; }
     .confetti-container { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 
-    /* Card Deck */
-    .card-deck-stage { width: 100%; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 600px; margin-bottom: 10px; }
-    .stationery-deck-card { width: 100%; max-width: 185px; height: 120px; }
+    /* Game 2: Deck of Cards */
+    .card-deck-stage {
+      width: 100%;
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 600px;
+      margin-bottom: 14px;
+    }
+    .stationery-deck-card { width: 100%; max-width: 190px; height: 115px; }
     .card-inner {
       width: 100%;
       height: 100%;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
       border-radius: 8px;
     }
     .card-inner.flipped { transform: rotateY(180deg); }
@@ -1071,69 +1045,48 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     .card-front { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: #ffffff; border: 2px solid #93c5fd; }
-    .card-deck-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      padding: 2px 10px;
-      border-radius: 4px;
-    }
-    .card-front p { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 700; margin-top: 8px; }
+    .card-deck-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; border: 1px solid rgba(255, 255, 255, 0.4); padding: 2px 8px; border-radius: 4px; }
+    .card-front p { font-family: 'Space Grotesk', sans-serif; font-size: 0.76rem; font-weight: 700; margin-top: 8px; }
     .card-back { background: #fef9c3; color: #1e293b; transform: rotateY(180deg); border: 1.5px solid #facc15; text-align: center; }
-    .card-tag-type { font-size: 0.6rem; font-weight: 800; background: #facc15; color: #713f12; padding: 1px 6px; border-radius: 9999px; text-transform: uppercase; }
-    .card-task { font-size: 0.72rem; font-weight: 700; line-height: 1.25; margin-top: 6px; color: #0f172a; }
-    .card-quest-code { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 800; color: #854d0e; margin-top: 6px; }
+    .card-tag-type { font-size: 0.62rem; font-weight: 800; background: #facc15; color: #713f12; padding: 2px 6px; border-radius: 9999px; text-transform: uppercase; }
+    .card-task { font-size: 0.76rem; font-weight: 700; line-height: 1.35; margin-top: 6px; color: #0f172a; }
+    .card-quest-code { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; font-weight: 800; color: #854d0e; margin-top: 6px; }
 
-    /* Mini Game #3: Cyber Squad Aura & Rank Scanner */
+    /* Game 3: Cyber Squad Scanner */
     .cyber-game-card {
       background: #0f172a;
       color: #ffffff;
-      border: 2px solid rgba(56, 189, 248, 0.4);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+      border: 1px solid #334155;
     }
-    .cyber-badge {
-      background: var(--lime-neon);
-      color: #0f172a;
-    }
-    .cyber-title {
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
+    .cyber-badge { background: var(--lime-neon); color: #0f172a; }
+    .cyber-title { color: #ffffff; }
     .mode-pills-row {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 4px;
-      margin: 6px 0 10px 0;
-      width: 100%;
+      gap: 6px;
+      margin-bottom: 12px;
     }
     .mode-pill {
       background: #1e293b;
       color: #94a3b8;
       border: none;
-      padding: 3px 8px;
+      padding: 4px 8px;
       border-radius: 4px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.62rem;
       font-weight: 700;
     }
-    .mode-pill.active {
-      background: #38bdf8;
-      color: #0f172a;
-    }
+    .mode-pill.active { background: #38bdf8; color: #0f172a; }
     .aura-hud-box {
       width: 100%;
-      background: rgba(30, 41, 59, 0.9);
+      background: #1e293b;
       border: 1px solid #334155;
       border-radius: 8px;
       padding: 10px 12px;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       text-align: left;
     }
     .aura-hud-top {
@@ -1144,153 +1097,70 @@
       padding-bottom: 6px;
       margin-bottom: 8px;
     }
-    .aura-mode-sub {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.56rem;
-      color: #94a3b8;
-      display: block;
-    }
-    .aura-role-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #38bdf8;
-    }
-    .aura-rank-chip {
-      background: var(--lime-neon);
-      color: #0f172a;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.66rem;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-    .aura-bars {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.62rem;
-    }
-    .aura-bar-label {
-      display: flex;
-      justify-content: space-between;
-      color: #cbd5e1;
-      margin-bottom: 2px;
-    }
-    .aura-bar-track {
-      width: 100%;
-      height: 6px;
-      background: #0f172a;
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-    .aura-bar-fill {
-      height: 100%;
-      border-radius: 9999px;
-      transition: width 0.3s ease;
-    }
-    .aura-verdict {
-      font-size: 0.68rem;
-      color: #e2e8f0;
-      line-height: 1.35;
-      margin-top: 8px;
-      padding-top: 6px;
-      border-top: 1px solid #334155;
-    }
-    .btn-cyber {
-      width: 100%;
-      background: var(--lime-neon);
-      color: #0f172a;
-      font-weight: 800;
-      box-shadow: 0 4px 14px rgba(217, 249, 68, 0.3);
-    }
+    .aura-mode-sub { font-family: 'Space Grotesk', sans-serif; font-size: 0.58rem; color: #94a3b8; display: block; }
+    .aura-role-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; color: #38bdf8; }
+    .aura-rank-chip { background: var(--lime-neon); color: #0f172a; font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; }
+    .aura-bars { display: flex; flex-direction: column; gap: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; }
+    .aura-bar-label { display: flex; justify-content: space-between; color: #cbd5e1; margin-bottom: 2px; }
+    .aura-bar-track { width: 100%; height: 5px; background: #0f172a; border-radius: 9999px; overflow: hidden; }
+    .aura-bar-fill { height: 100%; border-radius: 9999px; transition: width 0.3s ease; }
+    .aura-verdict { font-size: 0.7rem; color: #e2e8f0; line-height: 1.4; margin-top: 8px; padding-top: 6px; border-top: 1px solid #334155; }
+    .btn-cyber { background: var(--lime-neon); color: #0f172a; font-weight: 800; }
 
-    /* VINTAGE CASSETTE / AUDIO DESK PLAYER */
-    .cassette-card {
-      width: 100%;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border: 2px solid #334155;
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      position: relative;
-    }
-    .cassette-label-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .tape-spool-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #334155;
-      border: 3px dashed #94a3b8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .tape-spool-icon.spinning {
-      animation: spinSpool 3s linear infinite;
-    }
-    @keyframes spinSpool {
-      100% { transform: rotate(360deg); }
-    }
-    .cassette-info h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #facc15;
-    }
-    .cassette-info p {
-      font-size: 0.72rem;
-      color: #94a3b8;
-    }
-    .cassette-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn-tape-play {
-      background: var(--blue-primary);
-      color: #ffffff;
-      border: none;
-      padding: 7px 18px;
-      border-radius: 9999px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.76rem;
-      box-shadow: 0 4px 10px rgba(21, 85, 200, 0.35);
-    }
-    .btn-tape-play:hover {
-      background: #1d4ed8;
-    }
-
-    /* Links Wall */
+    /* Links Wall Card */
     .links-wall-card {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 22px 24px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-      position: relative;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
       border: 1px solid #e2e8f0;
     }
-    .links-wall-header { margin-bottom: 18px; }
-    .links-heading { font-family: 'Syne', sans-serif; font-size: clamp(1.18rem, 3vw, 1.5rem); font-weight: 800; color: #0f172a; }
-    .links-sub { font-size: 0.78rem; color: #64748b; }
-    .links-category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .link-category-col { display: flex; flex-direction: column; gap: 10px; }
-    .cat-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 700; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
-    .sticky-links-stack { display: flex; flex-direction: column; gap: 8px; }
+
+    .links-wall-header {
+      margin-bottom: 20px;
+    }
+
+    .links-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .links-sub {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 2px;
+      display: block;
+    }
+
+    .links-category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .link-category-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cat-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 6px;
+    }
+
+    .sticky-links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .link-item {
       display: flex;
       align-items: center;
@@ -1299,223 +1169,329 @@
       text-decoration: none;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      padding: 10px 12px;
+      padding: 12px 14px;
       border-radius: 8px;
       color: #1e293b;
     }
-    .link-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); }
-    .link-yt:hover { background: #fef2f2; border-color: #f87171; }
-    .link-web:hover { background: #eff6ff; border-color: #60a5fa; }
-    .link-social:hover { background: #f0fdf4; border-color: #4ade80; }
-    .link-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-    .link-info strong, .link-single-label { font-size: 0.8rem; font-weight: 700; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .link-info small { font-size: 0.65rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .link-action-tag { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; color: #1555c8; font-weight: 800; flex-shrink: 0; }
+    .link-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); }
+    .link-yt:hover { background: #fef2f2; border-color: #fca5a5; }
+    .link-web:hover { background: #eff6ff; border-color: #93c5fd; }
+    .link-social:hover { background: #f0fdf4; border-color: #86efac; }
 
-    .portfolio-footer { margin-top: 8px; text-align: center; font-size: 0.76rem; color: #6b7280; padding: 0 10px; }
-
-    /* ==========================================================================
-       RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
-       ========================================================================== */
-    @media (max-width: 860px) {
-      .top-section { grid-template-columns: 1fr; gap: 24px; }
-      .id-badge-assembly { margin-top: 0; }
-      .clipboard-board { padding: 16px 14px; }
-      .clipboard-clamp { display: none; }
-      .paper-columns-grid { grid-template-columns: 1fr; gap: 26px; }
-      .interactive-games-grid { grid-template-columns: repeat(2, 1fr); }
-      .cyber-game-card { grid-column: span 2; }
-      .links-category-grid { grid-template-columns: 1fr; }
-      .notebook-tabs {
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 16px;
-        padding-top: 12px;
-        border-top: 1px dashed #cbd5e1;
-      }
-      .tab { border-radius: 4px; }
+    .link-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    .link-info strong, .link-single-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link-info small {
+      font-size: 0.68rem;
+      color: #64748b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link-action-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      color: var(--blue-primary);
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
+    .portfolio-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+      padding: 12px 10px 0 10px;
+    }
+
+    /* ===================== LAYOUT / SPACING FIX LAYER ===================== */
+    html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+    body {
+      min-height: 100vh; min-height: 100dvh; line-height: 1.6; overflow-x: clip;
+      padding: 20px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left));
+    }
+    img, svg { max-width: 100%; }
+    h1, h2, h3, h4 { line-height: 1.2; }
+    .desk-canvas { max-width: 1080px; gap: 32px; }
+    .desk-canvas > *, .tools-section-container { min-width: 0; }
+    #section-profile, #section-experience, #section-tools { scroll-margin-top: 84px; }
+
+    /* Nav */
+    .quick-toolbar { width: max-content; max-width: 100%; margin-bottom: 28px; }
+    .nav-pill { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 8px 16px; font-size: 0.82rem; }
+    .nav-short { display: none; }
+
+    /* Section headers: badge + title together, dashed line fills the rest */
+    .section-header-banner { justify-content: flex-start; flex-wrap: wrap; gap: 10px 14px; margin-bottom: -12px; }
+    .section-header-banner::after { content: ""; flex: 1 1 40px; min-width: 20px; border-top: 2px dashed rgba(30, 41, 59, 0.18); }
+    .tools-section-container { gap: 24px; }
+    .tools-section-container > .section-header-banner { margin-bottom: -4px; }
+
+    /* Profile section */
+    .top-section { grid-template-columns: 320px minmax(0, 1fr); gap: 28px; }
+    .id-holder { backdrop-filter: none; background: rgba(255, 255, 255, 0.96); }
+    .id-photo-frame { width: 150px; height: 172px; }
+    .id-photo-frame img, .id-photo-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .id-photo-frame img { opacity: 0; transition: opacity 0.3s ease; }
+    .id-photo-frame img.loaded { opacity: 1; }
+    .id-photo-fallback { display: flex; }
+    .id-photo-frame.has-photo .id-photo-fallback { display: none; }
+    .id-card-meta { font-size: 0.72rem; }
+    .id-title-name { font-size: 1.25rem; }
+    .id-badge-role { font-size: 0.74rem; }
+    .contact-list { gap: 10px; }
+    .contact-list li { font-size: 0.84rem; }
+    .contact-list li > span:last-child { text-align: right; }
+    .contact-label { font-size: 0.72rem; }
+    .contact-list a { word-break: normal; overflow-wrap: anywhere; font-size: 0.82rem; }
+    .contact-email-item > a { text-align: left; }
+    .notebook-sheet { gap: 22px; justify-content: flex-start; min-width: 0; }
+    .note-body-text { margin-top: 18px; font-size: 0.98rem; line-height: 1.75; }
+    .hobbies-card { margin-top: auto; }
+    .hobby-tag strong { font-size: 0.88rem; }
+    .hobby-tag span { font-size: 0.8rem; line-height: 1.5; }
+    .tab-pill { font-size: 0.72rem; padding: 5px 11px; }
+
+    /* Clipboard */
+    .clipboard-board { margin-top: 16px; }
+    .paper-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+    .paper-col { min-width: 0; }
+    .year-pill { min-width: 58px; text-align: center; font-size: 0.72rem; }
+    .entry-details { min-width: 0; }
+    .entry-details h4 { font-size: 0.92rem; }
+    .entry-details p { font-size: 0.82rem; }
+    .skill-tag { font-size: 0.82rem; }
+    .mobile-tools-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 10px; }
+    .software-item { width: 62px; }
+    .app-tile { width: 48px; height: 48px; }
+    .app-name { font-size: 0.72rem; }
+    .client-name { font-size: 0.95rem; }
+    .client-desc { font-size: 0.84rem; line-height: 1.6; }
+    .gaming-meta-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.92rem; font-weight: 700; color: #0f172a; }
+    .gaming-meta-card p { font-size: 0.84rem; line-height: 1.6; }
+
+    /* Games */
+    .interactive-games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 22px; }
+    .game-card { padding: 28px 20px 22px; min-width: 0; }
+    .game-desc { font-size: 0.82rem; min-height: calc(1.5em * 3); }
+    .game-action-btn { min-height: 44px; font-size: 0.86rem; }
+    .game-action-btn:disabled { opacity: 0.7; cursor: wait; }
+    .gift-box-stage { height: 100px; }
+    .confetti-container { overflow: visible; z-index: 3; }
+    .gift-result-card { min-height: 110px; }
+    .gift-badge-name { font-size: 0.86rem; }
+    .gift-quote { font-size: 1.05rem; }
+    .card-deck-stage { height: 150px; perspective: none; margin-bottom: 16px; }
+    .stationery-deck-card { max-width: 240px; height: 140px; perspective: 700px; }
+    .card-front p, .card-task { font-size: 0.82rem; }
+    .card-tag-type { font-size: 0.66rem; }
+    .mode-pills-row { flex-wrap: wrap; justify-content: center; width: 100%; }
+    .mode-pill { padding: 7px 10px; min-height: 32px; font-size: 0.68rem; }
+    .aura-hud-top { gap: 8px; flex-wrap: wrap; }
+    .aura-mode-sub { font-size: 0.64rem; }
+    .aura-role-name { font-size: 0.84rem; }
+    .aura-bars { font-size: 0.72rem; gap: 8px; }
+    .aura-verdict { font-size: 0.76rem; min-height: 4.5em; }
+
+    /* Links */
+    .links-category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .link-item { min-height: 58px; }
+    .link-info strong, .link-single-label { font-size: 0.88rem; }
+    .link-info small { font-size: 0.74rem; white-space: normal; overflow-wrap: anywhere; }
+    .links-sub { font-size: 0.88rem; line-height: 1.5; }
+    .portfolio-footer { line-height: 1.6; padding: 8px 10px 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    /* ---------- Tablet / small laptop ---------- */
+    @media (max-width: 1023px) {
+      .desk-canvas { gap: 28px; }
+      .top-section { grid-template-columns: 280px minmax(0, 1fr); gap: 22px; }
+      .interactive-games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .interactive-games-grid .cyber-game-card { grid-column: 1 / -1; width: 100%; max-width: 520px; justify-self: center; }
+      .links-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .links-category-grid > .link-category-col:last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 860px) {
+      .paper-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+      .clipboard-board { padding: 40px 16px 22px; }
+      .clipboard-paper { padding: 26px 20px; }
+      .notebook-sheet { padding: 26px 22px; }
+      .mobile-tools-grid { justify-content: flex-start; gap: 14px 18px; }
+    }
+    @media (max-width: 720px) {
+      .top-section { grid-template-columns: minmax(0, 1fr); }
+      .id-badge-assembly { max-width: 340px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .interactive-games-grid { grid-template-columns: minmax(0, 1fr); width: 100%; max-width: 480px; margin: 0 auto; }
+      .interactive-games-grid .cyber-game-card { max-width: none; }
+      .links-category-grid { grid-template-columns: minmax(0, 1fr); }
+      .game-desc { min-height: 0; }
+    }
     @media (max-width: 580px) {
-      body { padding: 10px 8px 44px 8px; }
-      .nav-pill { font-size: 0.7rem; padding: 5px 10px; }
-      .top-tag-container { justify-content: center; padding-right: 0; margin-bottom: -8px; }
-      .contact-sticky { margin-left: 0; margin-right: 0; }
-      .notebook-sheet { padding: 20px 15px 18px 15px; }
-      .clipboard-board { padding: 10px; border-radius: 12px; }
-      .clipboard-paper { padding: 18px 14px 24px 14px; }
-      .mobile-tools-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .hobbies-grid, .interactive-games-grid { grid-template-columns: 1fr; }
-      .cyber-game-card { grid-column: span 1; }
-      .links-wall-card { padding: 18px 14px; }
-      .yellow-tape-flag { display: none; }
-      .cassette-card { flex-direction: column; align-items: flex-start; }
+      body { padding-top: 12px; padding-bottom: 48px; }
+      .desk-canvas { gap: 24px; }
+      .section-header-banner::after { display: none; }
+      .hobbies-grid { grid-template-columns: minmax(0, 1fr); }
+      .links-wall-card { padding: 20px 16px; }
+      .note-header-wrap { flex-direction: column; align-items: flex-start; }
+      .mobile-tools-grid { justify-content: center; }
+      .notebook-sheet { padding: 22px 16px; }
+      .clipboard-board { padding: 38px 10px 14px; }
+      .clipboard-paper { padding: 22px 14px; }
+    }
+    @media (max-width: 480px) {
+      .nav-full { display: none; }
+      .nav-short { display: inline; }
+      .quick-toolbar { width: 100%; padding: 5px 6px; }
+      .nav-links-pills { width: 100%; gap: 4px; }
+      .nav-pill { flex: 1; padding: 8px 6px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hidden Audio Player for Background Vibes (Local or Stream) -->
-  <audio id="deskBgAudio" loop preload="none">
-    <!-- Replace 'music.mp3' with your custom audio file in your GitHub repo -->
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Clean Navigation Pill Bar with Sound Toggle -->
+  <!-- Navigation Pill Bar -->
   <nav class="quick-toolbar" aria-label="Section Navigation">
     <div class="nav-links-pills">
-      <a href="#section-profile" class="nav-pill active">01. Profile</a>
-      <a href="#section-experience" class="nav-pill">02. Experience</a>
-      <a href="#section-tools" class="nav-pill">03. Tools &amp; Links</a>
-      <button type="button" id="soundToggleBtn" class="nav-pill sound-pill" title="Mute/Unmute tactile click sounds">
-        <span id="soundIcon">🔊</span> <span id="soundLabel">SFX: ON</span>
-      </button>
+      <a href="#section-profile" class="nav-pill active"><span class="nav-full">01. Profile</span><span class="nav-short">Profile</span></a>
+      <a href="#section-experience" class="nav-pill"><span class="nav-full">02. Experience</span><span class="nav-short">Experience</span></a>
+      <a href="#section-tools" class="nav-pill"><span class="nav-full">03. Tools &amp; Links</span><span class="nav-short">Tools</span></a>
     </div>
   </nav>
 
   <main class="desk-canvas">
     
     <!-- SECTION 1 -->
-    <div class="section-anchor" id="section-profile"></div>
-
-    <header class="top-tag-container">
-      <div class="section-number-tag">SEC 01</div>
-      <div class="about-me-tag">introduce myself</div>
+    <header class="section-header-banner" id="section-profile">
+      <div class="section-pill-badge">SEC 01</div>
+      <h2 class="section-main-title">introduce myself</h2>
     </header>
 
     <section class="top-section">
-      <!-- ID Badge With Photo Slot -->
+      <!-- ID Badge Assembly -->
       <div class="id-badge-assembly" id="idBadge">
-        <div class="lanyard-strap"><div class="strap-texture"></div></div>
+        <div class="lanyard-strap"></div>
         <div class="metal-clip-wrap">
-          <svg class="metal-clip-svg" viewBox="0 0 44 70" width="40" height="62">
-            <defs>
-              <linearGradient id="metalGradEmbed" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#b0b5be"/>
-                <stop offset="35%" stop-color="#ffffff"/>
-                <stop offset="65%" stop-color="#8a909a"/>
-                <stop offset="100%" stop-color="#4f545c"/>
-              </linearGradient>
-            </defs>
-            <rect x="14" y="2" width="16" height="12" rx="3" fill="url(#metalGradEmbed)" stroke="#45484d" stroke-width="1.5"/>
-            <path d="M22 14 L22 28" stroke="url(#metalGradEmbed)" stroke-width="4.5" stroke-linecap="round"/>
-            <ellipse cx="22" cy="27" rx="6" ry="3" fill="url(#metalGradEmbed)" stroke="#3e4248" stroke-width="1"/>
-            <path d="M12 28 C12 22, 32 22, 32 28 L34 46 C34 58, 10 58, 10 46 Z" fill="none" stroke="url(#metalGradEmbed)" stroke-width="4" stroke-linejoin="round"/>
-            <rect x="18" y="32" width="8" height="18" rx="2" fill="url(#metalGradEmbed)" stroke="#3e4248" stroke-width="1"/>
-            <path d="M10 48 Q22 66 34 48" fill="none" stroke="url(#metalGradEmbed)" stroke-width="4.5" stroke-linecap="round"/>
+          <svg viewBox="0 0 44 48" width="38" height="42">
+            <rect x="14" y="2" width="16" height="10" rx="2" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+            <path d="M22 12 L22 22" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+            <path d="M12 22 C12 18, 32 18, 32 22 L33 34 C33 42, 11 42, 11 34 Z" fill="none" stroke="#64748b" stroke-width="3.5" stroke-linejoin="round"/>
           </svg>
         </div>
 
         <div class="id-holder">
           <div class="slot-hole"></div>
-          <div class="id-card-inner">
-            
-            <div class="id-badge-header">
-              <span class="badge-tag-text">CREATOR PASS</span>
-              <span class="badge-serial">#HH-2006</span>
+          
+          <div class="id-card-content">
+            <div class="id-card-meta">
+              <span>CREATOR PASS</span>
+              <span>#HH-2006</span>
             </div>
 
             <!-- Profile Photo Container with Smart Fallback -->
-            <div class="id-photo-container">
-              <div class="photo-corner-tape"></div>
-              <img 
-                src="profile.jpg" 
-                alt="Hasibol Hasan Profile Photo" 
-                class="id-profile-img" 
-                id="idPhotoImg"
-                onerror="this.style.display='none'; document.getElementById('idFallbackBox').style.display='flex';"
+            <div class="id-photo-frame">
+              <img
+                src="profile.jpg"
+                alt="Hasibol Hasan Profile Photo"
+                id="idProfileImg"
+                data-fallbacks="profile.jpeg,profile.png,profile.webp,Profile.jpg,images/profile.jpg,assets/profile.jpg"
+                onload="this.classList.add('loaded');this.parentNode.classList.add('has-photo')"
+                onerror="__nextPhoto(this)"
               >
               <div class="id-photo-fallback" id="idFallbackBox">
                 <div class="monogram-circle">HH</div>
-                <span class="fallback-hint">Add profile.jpg</span>
+                <span class="fallback-text">Creator Pass</span>
               </div>
             </div>
 
-            <div class="id-info-block">
-              <div class="monogram-name">Hasibol Hasan</div>
-              <div class="monogram-role">Developer &amp; Editor</div>
-            </div>
-
-            <!-- Contact Sticky Note -->
-            <div class="contact-sticky">
-              <div class="sticky-header">Personal Details</div>
-              <ul class="contact-list">
-                <li><span class="contact-label">Name</span> <span>Hasibol Hasan</span></li>
-                <li><span class="contact-label">DOB</span> <span>21 / 10 / 2006</span></li>
-                <li><span class="contact-label">Location</span> <span>Dhaka, Bangladesh</span></li>
-                <li class="contact-email-item">
-                  <span class="contact-label">Email</span>
-                  <a href="mailto:hasibolhasan.pranto@gmail.com">hasibolhasan.pranto@gmail.com</a>
-                </li>
-              </ul>
-            </div>
+            <h3 class="id-title-name">Hasibol Hasan</h3>
+            <span class="id-badge-role">Developer &amp; Editor</span>
           </div>
-          <div class="plastic-shine"></div>
+
+          <!-- Pinned Personal Details -->
+          <div class="contact-sticky">
+            <div class="sticky-header">Personal Details</div>
+            <ul class="contact-list">
+              <li><span class="contact-label">Name</span> <span>Hasibol Hasan</span></li>
+              <li><span class="contact-label">DOB</span> <span>21 / 10 / 2006</span></li>
+              <li><span class="contact-label">Location</span> <span>Dhaka, Bangladesh</span></li>
+              <li class="contact-email-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:hasibolhasan.pranto@gmail.com">hasibolhasan.pranto@gmail.com</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- Notebook Bio Sheet -->
       <article class="notebook-sheet">
-        <div class="binder-holes">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="washi-tape-sketch">NOTE</div>
+        <div>
+          <div class="note-header-wrap">
+            <div class="intro-badge-group">
+              <div class="hello-badge">
+                <span>Hello</span>
+                <span>I AM</span>
+              </div>
+              <h1 class="person-name">Hasibol Hasan</h1>
+            </div>
 
-        <div class="note-intro-row">
-          <div class="hello-name-badge">
-            <span class="hello-tag">Hello</span>
-            <span class="name-sub">I AM</span>
+            <div class="notebook-tabs-inline">
+              <span class="tab-pill tab-dev">Developer</span>
+              <span class="tab-pill tab-gamer">Gamer</span>
+              <span class="tab-pill tab-poet">Poet</span>
+            </div>
           </div>
-          <h1 class="person-name">Hasibol Hasan</h1>
+
+          <div class="note-body-text">
+            <p>
+              Hello! I am <strong>Hasibol Hasan</strong>, based in Dhaka, Bangladesh (Born: October 21, 2006). I am an enthusiastic creator and developer driven by modern technologies and artistic expression. My core focus spans across <strong>Application Engineering</strong>, <strong>Website Development</strong>, <strong>Photo Editing</strong>, and <strong>Video Editing</strong>.
+            </p>
+            <p>
+              I love turning creative ideas into functional digital reality — whether it is designing smooth interactive web apps, crafting video edits, or expressing thoughts through words and competitive gaming!
+            </p>
+          </div>
         </div>
 
-        <div class="note-content-body">
-          <p>
-            Hello! I am <strong>Hasibol Hasan</strong>, based in Dhaka, Bangladesh (Born: October 21, 2006). I am an enthusiastic creator and developer driven by modern technologies and artistic expression. My core focus spans across <strong>Application Engineering</strong>, <strong>Website Development</strong>, <strong>Photo Editing</strong>, and <strong>Video Editing</strong>.
-          </p>
-          <p>
-            I love turning creative ideas into functional digital reality — whether it is designing smooth interactive web apps, crafting video edits, or expressing thoughts through words and competitive gaming!
-          </p>
-        </div>
-
-        <div class="hobbies-scrap-box">
+        <div class="hobbies-card">
           <div class="hobbies-title">Passions, Gaming &amp; Creative Writing:</div>
           <div class="hobbies-grid">
             <div class="hobby-tag hobby-gaming">
-              <div class="hobby-text">
-                <strong>Gaming Passion</strong>
-                <span class="hobby-sub">Minecraft • Free Fire • Blood Strike</span>
-              </div>
+              <strong>Gaming Passion</strong>
+              <span>Minecraft • Free Fire • Blood Strike</span>
             </div>
             <div class="hobby-tag hobby-writing">
-              <div class="hobby-text">
-                <strong>Creative Writing</strong>
-                <span class="hobby-sub">Writing Poetry, Stories &amp; Quotes</span>
-              </div>
+              <strong>Creative Writing</strong>
+              <span>Writing Poetry, Stories &amp; Quotes</span>
             </div>
           </div>
         </div>
 
-        <div class="note-stickers-row">
-          <div class="contact-callout-sticker">
-            Welcome to my creative hub!
-          </div>
+        <div class="note-footer-row">
+          <div class="contact-callout-sticker">Welcome to my creative hub!</div>
           <div class="holographic-badge">
-            <div class="holo-core"><div class="holo-dot"></div></div>
+            <div class="holo-core"></div>
             <span class="holo-text">Coder &amp; Gamer</span>
           </div>
-        </div>
-
-        <div class="notebook-tabs">
-          <span class="tab tab-blue">Developer</span>
-          <span class="tab tab-orange">Gamer</span>
-          <span class="tab tab-yellow">Poet</span>
         </div>
       </article>
     </section>
 
-    <!-- Washi Ribbon 1 -->
+    <!-- Divider Ribbon 1 -->
     <div class="washi-banner-divider">
       <div class="washi-tape-content">
         <span>App Engineering</span> <span class="washi-sep">/</span>
@@ -1526,150 +1502,130 @@
     </div>
 
     <!-- SECTION 2 -->
-    <div class="section-anchor" id="section-experience"></div>
+    <header class="section-header-banner" id="section-experience">
+      <div class="section-pill-badge">SEC 02</div>
+      <h2 class="section-main-title">skills &amp; experience</h2>
+    </header>
 
-    <section class="clipboard-container">
-      <div class="clipboard-board">
-        <div class="clipboard-clamp">
-          <div class="clamp-metal-body">
-            <div class="clamp-rivet rivet-left"></div>
-            <div class="clamp-rivet rivet-right"></div>
-          </div>
-          <div class="clamp-loop-wire"></div>
-        </div>
+    <section class="clipboard-board">
+      <!-- Centered Metal Clip -->
+      <div class="clipboard-top-clip">
+        <div class="clip-wire-loop"></div>
+        <div class="clip-rivet"></div>
+        <div class="clip-rivet"></div>
+      </div>
 
-        <div class="clipboard-paper">
-          <div class="paper-columns-grid">
-            <div class="paper-col-left">
-              <div class="block-section">
-                <div class="highlighter-pill pill-lime">Skills &amp; Capabilities</div>
-                <div class="timeline-items">
-                  <div class="timeline-entry">
-                    <span class="year-pill">APP</span>
-                    <div class="entry-details">
-                      <h4 class="edu-title">Application Engineering</h4>
-                      <p class="edu-sub">Logic design, software engineering &amp; functional components</p>
-                    </div>
-                  </div>
-                  <div class="timeline-entry">
-                    <span class="year-pill">WEB</span>
-                    <div class="entry-details">
-                      <h4 class="edu-title">Website Development</h4>
-                      <p class="edu-sub">Modern, responsive, user-friendly interactive web experiences</p>
-                    </div>
-                  </div>
-                  <div class="timeline-entry">
-                    <span class="year-pill">VIDEO</span>
-                    <div class="entry-details">
-                      <h4 class="edu-title">Video Editing</h4>
-                      <p class="edu-sub">Motion flow, montage cuts, audio syncing &amp; visual effects</p>
-                    </div>
-                  </div>
-                  <div class="timeline-entry">
-                    <span class="year-pill">PHOTO</span>
-                    <div class="entry-details">
-                      <h4 class="edu-title">Photo Editing &amp; Manipulation</h4>
-                      <p class="edu-sub">Creative retouching, color grading &amp; visual composition</p>
-                    </div>
+      <div class="clipboard-paper">
+        <div class="paper-grid">
+          
+          <!-- Left Column -->
+          <div class="paper-col">
+            <div>
+              <div class="highlighter-pill pill-lime">Skills &amp; Capabilities</div>
+              <div class="timeline-items">
+                <div class="timeline-entry">
+                  <span class="year-pill">APP</span>
+                  <div class="entry-details">
+                    <h4>Application Engineering</h4>
+                    <p>Logic design, software engineering &amp; functional components</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="block-section">
-                <div class="skill-row-header">
-                  <div class="highlighter-pill pill-yellow">Specialties</div>
+                <div class="timeline-entry">
+                  <span class="year-pill">WEB</span>
+                  <div class="entry-details">
+                    <h4>Website Development</h4>
+                    <p>Modern, responsive, user-friendly interactive web experiences</p>
+                  </div>
                 </div>
-                <div class="stickers-skill-cloud">
-                  <div class="skill-tag tag-typography">Clean Code</div>
-                  <div class="skill-tag tag-video">
-                    <span>Video &amp; Reel</span><span>Editing</span>
+                <div class="timeline-entry">
+                  <span class="year-pill">VIDEO</span>
+                  <div class="entry-details">
+                    <h4>Video Editing</h4>
+                    <p>Motion flow, montage cuts, audio syncing &amp; visual effects</p>
                   </div>
-                  <div class="skill-tag tag-photo">
-                    <span>Photo</span><span>Manipulation</span>
-                  </div>
-                  <div class="skill-tag tag-layout">
-                    <strong>Creative</strong><small>Storytelling</small>
-                  </div>
-                  <div class="skill-tag tag-gaming"><span>Pro Gamer</span></div>
                 </div>
-              </div>
-
-              <!-- TOP 5 MOBILE EDITING APPS -->
-              <div class="block-section">
-                <div class="highlighter-pill pill-yellow">Top 5 Mobile Editing Apps</div>
-                <div class="mobile-tools-grid">
-                  <div class="software-item">
-                    <div class="app-tile tile-cc" title="CapCut - Video Editing">CC</div>
-                    <span class="app-name">CapCut</span>
-                  </div>
-                  <div class="software-item">
-                    <div class="app-tile tile-lr" title="Lightroom - Color Grading">Lr</div>
-                    <span class="app-name">Lightroom</span>
-                  </div>
-                  <div class="software-item">
-                    <div class="app-tile tile-am" title="Alight Motion - Motion Graphics">AM</div>
-                    <span class="app-name">Alight Motion</span>
-                  </div>
-                  <div class="software-item">
-                    <div class="app-tile tile-sn" title="Snapseed - Photo Retouching">Sn</div>
-                    <span class="app-name">Snapseed</span>
-                  </div>
-                  <div class="software-item">
-                    <div class="app-tile tile-vn" title="VN Video Editor - Cinematic Cuts">VN</div>
-                    <span class="app-name">VN Editor</span>
+                <div class="timeline-entry">
+                  <span class="year-pill">PHOTO</span>
+                  <div class="entry-details">
+                    <h4>Photo Editing &amp; Manipulation</h4>
+                    <p>Creative retouching, color grading &amp; visual composition</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="paper-col-right">
-              <div class="exp-header-row">
-                <h2 class="section-heading">My Experience</h2>
-                <div class="approved-stamp">VERIFIED</div>
-                <div class="yellow-tape-flag"></div>
+            <div>
+              <div class="highlighter-pill pill-yellow">Specialties</div>
+              <div class="stickers-skill-cloud">
+                <div class="skill-tag tag-clean">Clean Code</div>
+                <div class="skill-tag tag-video">Video &amp; Reel Editing</div>
+                <div class="skill-tag tag-photo">Photo Manipulation</div>
+                <div class="skill-tag tag-story">Creative Storytelling</div>
+                <div class="skill-tag tag-game">Pro Gamer</div>
               </div>
+            </div>
 
-              <div class="exp-job-card">
-                <div class="job-meta-header">
-                  <h3 class="job-role">Full-Stack &amp; Application Development</h3>
-                  <span class="date-badge">Active</span>
+            <!-- Top 5 Mobile Editing Apps -->
+            <div>
+              <div class="highlighter-pill pill-yellow">Top 5 Mobile Editing Apps</div>
+              <div class="mobile-tools-grid">
+                <div class="software-item">
+                  <div class="app-tile tile-cc" title="CapCut">CC</div>
+                  <span class="app-name">CapCut</span>
                 </div>
-                <p class="job-role-sub">
-                  Engineering innovative applications, tools, and responsive interfaces:
-                </p>
-
-                <div class="client-cards-stack">
-                  <div class="client-card card-yellow">
-                    <h5 class="client-name">Web &amp; Application Engineering</h5>
-                    <p class="client-desc">Building interactive web platforms, single-page tools, custom scrapbooks, and lightweight embeddable widgets with clean architecture.</p>
-                  </div>
-                  <div class="client-card card-pink">
-                    <h5 class="client-name">Visual &amp; Mobile Multimedia Production</h5>
-                    <p class="client-desc">Creating high-impact mobile photo manipulation, cinematic video cuts using CapCut &amp; Alight Motion, gaming highlights, and aesthetic graphic assets.</p>
-                  </div>
-                  <div class="client-card card-cyan">
-                    <h5 class="client-name">Literature &amp; Creative Expression</h5>
-                    <p class="client-desc">Writing poetry, fictional narratives, and meaningful thought-provoking quotes reflecting life, dreams, and friendships.</p>
-                  </div>
+                <div class="software-item">
+                  <div class="app-tile tile-lr" title="Lightroom">Lr</div>
+                  <span class="app-name">Lightroom</span>
                 </div>
-              </div>
-
-              <div class="exp-job-card blue-peach-card">
-                <div class="job-meta-header">
-                  <h3 class="job-role">Competitive &amp; Sandbox Gaming</h3>
-                  <span class="date-badge">Ongoing</span>
+                <div class="software-item">
+                  <div class="app-tile tile-am" title="Alight Motion">AM</div>
+                  <span class="app-name">Alight</span>
                 </div>
-                <p class="job-role-sub">Active player, tactical builder, and strategist:</p>
-                <p class="job-summary">Expert survival architecture in <strong>Minecraft</strong>, tactical clutch gameplay in <strong>Free Fire</strong>, and high-precision combat in <strong>Blood Strike</strong>.</p>
+                <div class="software-item">
+                  <div class="app-tile tile-sn" title="Snapseed">Sn</div>
+                  <span class="app-name">Snapseed</span>
+                </div>
+                <div class="software-item">
+                  <div class="app-tile tile-vn" title="VN Editor">VN</div>
+                  <span class="app-name">VN</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="paper-curl-corner"></div>
+
+          <!-- Right Column -->
+          <div class="paper-col">
+            <div class="exp-header-row">
+              <h2 class="section-heading">My Experience</h2>
+              <div class="approved-stamp">VERIFIED</div>
+            </div>
+
+            <div class="client-cards-stack">
+              <div class="client-card card-yellow">
+                <h3 class="client-name">Web &amp; Application Engineering</h3>
+                <p class="client-desc">Building interactive web platforms, single-page tools, custom scrapbooks, and lightweight embeddable widgets with clean architecture.</p>
+              </div>
+              <div class="client-card card-pink">
+                <h3 class="client-name">Visual &amp; Mobile Multimedia Production</h3>
+                <p class="client-desc">Creating high-impact mobile photo manipulation, cinematic video cuts using CapCut &amp; Alight Motion, gaming highlights, and aesthetic graphic assets.</p>
+              </div>
+              <div class="client-card card-cyan">
+                <h3 class="client-name">Literature &amp; Creative Expression</h3>
+                <p class="client-desc">Writing poetry, fictional narratives, and meaningful thought-provoking quotes reflecting life, dreams, and friendships.</p>
+              </div>
+            </div>
+
+            <div class="gaming-meta-card">
+              <h3>Competitive &amp; Sandbox Gaming</h3>
+              <p>Active player and tactician: expert survival architecture in <strong>Minecraft</strong>, tactical clutch gameplay in <strong>Free Fire</strong>, and high-precision combat in <strong>Blood Strike</strong>.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Washi Ribbon 2 -->
+    <!-- Divider Ribbon 2 -->
     <div class="washi-banner-divider washi-banner-games">
       <div class="washi-tape-content">
         <span>Interactive Desk</span> <span class="washi-sep">/</span>
@@ -1680,29 +1636,15 @@
     </div>
 
     <!-- SECTION 3 -->
-    <div class="section-anchor" id="section-tools"></div>
+    <section class="tools-section-container" id="section-tools">
+      <header class="section-header-banner">
+        <div class="section-pill-badge">SEC 03</div>
+        <h2 class="section-main-title">personal tools &amp; links</h2>
+      </header>
 
-    <section class="tools-section-container">
-      <div class="sec3-header-wrap">
-        <div class="section-number-tag">SEC 03</div>
-        <h2 class="sec3-title">Personal Tools &amp; Links</h2>
-      </div>
-
-      <!-- DESK RETRO CASSETTE PLAYER -->
-      <div class="cassette-card">
-        <div class="cassette-label-wrap">
-          <div class="tape-spool-icon" id="tapeSpool">📼</div>
-          <div class="cassette-info">
-            <h4>Hasibol's Lo-Fi Desk Player</h4>
-            <p id="tapeStatus">Upload 'music.mp3' in your repository to stream custom audio!</p>
-          </div>
-        </div>
-        <div class="cassette-controls">
-          <button type="button" class="btn-tape-play" id="btnToggleMusic">▶ Play Ambient</button>
-        </div>
-      </div>
-
+      <!-- 3 Balanced Interactive Games -->
       <div class="interactive-games-grid">
+        
         <!-- Game 1: Banglish Gift Box -->
         <div class="game-card">
           <div class="game-badge">Mini Game #1</div>
@@ -1710,7 +1652,7 @@
           <p class="game-desc">Box e click kore unwrap koro ekta special friendship surprise ar mon chuya Banglish quote!</p>
           
           <div class="gift-box-stage">
-            <div class="gift-3d" id="giftBoxBtn" title="Box ti khulte click korun!">
+            <div class="gift-3d" id="giftBoxBtn" role="button" tabindex="0" title="Box ti khulte click korun!">
               <div class="gift-lid" id="giftLid"><div class="gift-ribbon-v"></div></div>
               <div class="gift-body"><div class="gift-ribbon-v"></div></div>
             </div>
@@ -1719,7 +1661,7 @@
 
           <div class="gift-result-card">
             <div class="gift-badge-name" id="giftTitle">Box e click kore gift open koro!</div>
-            <p class="gift-quote" id="giftQuote">"Asol bondhura holo Minecraft er diamond er moto; khub rare kintu indestructible!"</p>
+            <p class="gift-quote" id="giftQuote">Notun surprise unboxing er jonno wait koro...</p>
           </div>
 
           <button class="game-action-btn" id="openGiftBtn">Open Gift Box</button>
@@ -1732,7 +1674,7 @@
           <p class="game-desc">Draw a card to discover a fun friendship challenge, activity, or creative game idea!</p>
           
           <div class="card-deck-stage">
-            <div class="stationery-deck-card" id="drawnCard">
+            <div class="stationery-deck-card" id="drawnCard" role="button" tabindex="0" aria-label="Draw a card">
               <div class="card-inner" id="cardInner">
                 <div class="card-front">
                   <span class="card-deck-label">DECK</span>
@@ -1754,6 +1696,7 @@
         <div class="game-card cyber-game-card">
           <div class="game-badge cyber-badge">Mini Game #3 • PRO</div>
           <h3 class="game-title cyber-title">Squad Aura &amp; Rank Scanner</h3>
+          <p class="game-desc" style="color: #94a3b8;">Analyze real-time squad rank, tactical IQ &amp; clutch aura stats!</p>
 
           <div class="mode-pills-row">
             <button type="button" class="mode-pill active" data-mode="FREE FIRE">FREE FIRE</button>
@@ -1772,43 +1715,25 @@
 
             <div class="aura-bars">
               <div>
-                <div class="aura-bar-label">
-                  <span>CLUTCH AIM</span>
-                  <span id="aimVal" style="color:#38bdf8;font-weight:700;">88%</span>
-                </div>
-                <div class="aura-bar-track">
-                  <div id="aimBar" class="aura-bar-fill" style="width:88%;background:#38bdf8;"></div>
-                </div>
+                <div class="aura-bar-label"><span>CLUTCH AIM</span><span id="aimVal" style="color:#38bdf8;font-weight:700;">88%</span></div>
+                <div class="aura-bar-track"><div id="aimBar" class="aura-bar-fill" style="width:88%;background:#38bdf8;"></div></div>
               </div>
-
               <div>
-                <div class="aura-bar-label">
-                  <span>TACTICAL IQ</span>
-                  <span id="iqVal" style="color:#d9f944;font-weight:700;">92%</span>
-                </div>
-                <div class="aura-bar-track">
-                  <div id="iqBar" class="aura-bar-fill" style="width:92%;background:#d9f944;"></div>
-                </div>
+                <div class="aura-bar-label"><span>TACTICAL IQ</span><span id="iqVal" style="color:#d9f944;font-weight:700;">92%</span></div>
+                <div class="aura-bar-track"><div id="iqBar" class="aura-bar-fill" style="width:92%;background:#d9f944;"></div></div>
               </div>
-
               <div>
-                <div class="aura-bar-label">
-                  <span>AURA SYNERGY</span>
-                  <span id="vibeVal" style="color:#34d399;font-weight:700;">90%</span>
-                </div>
-                <div class="aura-bar-track">
-                  <div id="vibeBar" class="aura-bar-fill" style="width:90%;background:#34d399;"></div>
-                </div>
+                <div class="aura-bar-label"><span>AURA SYNERGY</span><span id="vibeVal" style="color:#34d399;font-weight:700;">90%</span></div>
+                <div class="aura-bar-track"><div id="vibeBar" class="aura-bar-fill" style="width:90%;background:#34d399;"></div></div>
               </div>
             </div>
 
-            <p class="aura-verdict" id="auraVerdict">
-              Tap "Boost Squad Aura" to scan your live gaming &amp; friendship power level!
-            </p>
+            <p class="aura-verdict" id="auraVerdict">Tap "Boost Squad Aura" to scan your gaming power level!</p>
           </div>
 
           <button class="game-action-btn btn-cyber" id="scanAuraBtn">Boost Squad Aura</button>
         </div>
+
       </div>
 
       <!-- Links Wall -->
@@ -1819,11 +1744,13 @@
         </div>
 
         <div class="links-category-grid">
+          
           <div class="link-category-col">
             <h4 class="cat-title">YouTube Links</h4>
             <div class="sticky-links-stack">
               <a href="https://youtube.com/playlist?list=PLYOuFMLXoWRAHlgNkCuFJ2DSiRImUnWg7&si=uFOT4itMjenaQh1n" target="_blank" rel="noopener noreferrer" class="link-item link-yt">
-                <span class="link-single-label">zMusic</span>
+                <span class="link-single-label">zMusic Playlist</span>
+                <span class="link-action-tag">↗</span>
               </a>
             </div>
           </div>
@@ -1833,12 +1760,15 @@
             <div class="sticky-links-stack">
               <a href="https://ultramotionofficial.com/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
                 <span class="link-single-label">Ultra Motion</span>
+                <span class="link-action-tag">↗</span>
               </a>
               <a href="https://tojilabs.github.io/tojimotion/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
                 <span class="link-single-label">TojiLabs</span>
+                <span class="link-action-tag">↗</span>
               </a>
               <a href="https://vanced.to/" target="_blank" rel="noopener noreferrer" class="link-item link-web">
                 <span class="link-single-label">Vanced</span>
+                <span class="link-action-tag">↗</span>
               </a>
             </div>
           </div>
@@ -1856,7 +1786,7 @@
               <a href="https://pin.it/1wcJbjp7E" target="_blank" rel="noopener noreferrer" class="link-item link-social">
                 <div class="link-info">
                   <strong>Pinterest Board</strong>
-                  <small>Creative aesthetics &amp; pins</small>
+                  <small>Creative aesthetics</small>
                 </div>
                 <span class="link-action-tag">OPEN</span>
               </a>
@@ -1869,6 +1799,7 @@
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -1881,166 +1812,37 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // ==========================================
-      // 1. TACTILE WEB AUDIO SYNTHESIZER (NO EXTERNAL FILES NEEDED)
-      // ==========================================
-      let audioCtx = null;
-      let soundEnabled = true;
-
-      function initAudio() {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-      }
-
-      function playTactileClick() {
-        if (!soundEnabled) return;
-        try {
-          initAudio();
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(420, audioCtx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.04);
-          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.04);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.04);
-        } catch(e) {}
-      }
-
-      function playPopChime() {
-        if (!soundEnabled) return;
-        try {
-          initAudio();
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(520, audioCtx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.12);
-          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.14);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.14);
-        } catch(e) {}
-      }
-
-      function playCyberScanSound() {
-        if (!soundEnabled) return;
-        try {
-          initAudio();
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sawtooth';
-          osc.frequency.setValueAtTime(300 + Math.random() * 400, audioCtx.currentTime);
-          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 0.05);
-        } catch(e) {}
-      }
-
-      // Sound Toggle Button Logic
-      const soundToggleBtn = document.getElementById('soundToggleBtn');
-      const soundIcon = document.getElementById('soundIcon');
-      const soundLabel = document.getElementById('soundLabel');
-
-      if (soundToggleBtn) {
-        soundToggleBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          soundEnabled = !soundEnabled;
-          if (soundEnabled) {
-            soundToggleBtn.classList.remove('muted');
-            soundIcon.textContent = '🔊';
-            soundLabel.textContent = 'SFX: ON';
-            playPopChime();
-          } else {
-            soundToggleBtn.classList.add('muted');
-            soundIcon.textContent = '🔇';
-            soundLabel.textContent = 'SFX: OFF';
-          }
-        });
-      }
-
-      // ==========================================
-      // 2. DESK CASSETTE PLAYER (AUDIO/MUSIC)
-      // ==========================================
-      const deskBgAudio = document.getElementById('deskBgAudio');
-      const btnToggleMusic = document.getElementById('btnToggleMusic');
-      const tapeSpool = document.getElementById('tapeSpool');
-      const tapeStatus = document.getElementById('tapeStatus');
-
-      let isMusicPlaying = false;
-      if (btnToggleMusic && deskBgAudio) {
-        btnToggleMusic.addEventListener('click', () => {
-          if (!isMusicPlaying) {
-            deskBgAudio.play().then(() => {
-              isMusicPlaying = true;
-              btnToggleMusic.textContent = '⏸ Pause Ambient';
-              tapeSpool.classList.add('spinning');
-              tapeStatus.textContent = 'Now Playing: Relaxing Creative Vibe';
-            }).catch(() => {
-              // If local audio file doesn't exist yet, generate soft ambient tone
-              isMusicPlaying = true;
-              btnToggleMusic.textContent = '⏸ Stop Synth Vibe';
-              tapeSpool.classList.add('spinning');
-              tapeStatus.textContent = 'Synth Mode Active! (Add music.mp3 to your GitHub for real songs)';
-            });
-          } else {
-            deskBgAudio.pause();
-            isMusicPlaying = false;
-            btnToggleMusic.textContent = '▶ Play Ambient';
-            tapeSpool.classList.remove('spinning');
-            tapeStatus.textContent = 'Upload "music.mp3" in your repository to stream custom audio!';
-          }
-        });
-      }
-
-      // ==========================================
-      // 3. GLOBAL CLICK SPARKLE BURST & SOUND
-      // ==========================================
-      const sparkleColors = ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6', '#ef4444', '#06b6d4'];
+      // 1. CLICK BURST VISUAL EFFECT
+      const sparkleColors = ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6'];
 
       document.addEventListener('click', (e) => {
-        const interactiveTarget = e.target.closest('button, a, .skill-tag, .app-tile, .client-card, .link-item, .hobby-tag, .contact-sticky, .holographic-badge, .tab, .id-holder, .stationery-deck-card, .gift-3d');
-        if (interactiveTarget) {
+        const target = e.target.closest('button, a, .skill-tag, .app-tile, .client-card, .link-item, .hobby-tag, .tab-pill, .stationery-deck-card, .gift-3d');
+        if (target) {
           createClickBurst(e.clientX, e.clientY);
-          playTactileClick();
         }
       });
 
       function createClickBurst(x, y) {
-        const particleCount = 6;
-        for (let i = 0; i < particleCount; i++) {
+        for (let i = 0; i < 5; i++) {
           const particle = document.createElement('div');
           particle.className = 'click-sparkle';
-          const size = Math.floor(Math.random() * 6) + 5;
+          const size = Math.floor(Math.random() * 5) + 4;
           const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-          const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.5;
-          const distance = Math.floor(Math.random() * 40) + 30;
-          const dx = Math.cos(angle) * distance + 'px';
-          const dy = Math.sin(angle) * distance + 'px';
+          const angle = (Math.PI * 2 * i) / 5;
+          const distance = Math.floor(Math.random() * 30) + 20;
 
           particle.style.cssText = `
             left: ${x}px; top: ${y}px; width: ${size}px; height: ${size}px;
             background: ${color}; box-shadow: 0 0 6px ${color};
-            --dx: ${dx}; --dy: ${dy};
+            --dx: ${Math.cos(angle) * distance}px;
+            --dy: ${Math.sin(angle) * distance}px;
           `;
           document.body.appendChild(particle);
-          setTimeout(() => { particle.remove(); }, 650);
+          setTimeout(() => particle.remove(), 550);
         }
       }
 
-      // ELEMENT SPECIFIC CLICK ANIMATIONS
+      // 2. ID BADGE LANYARD SWING
       const idBadge = document.getElementById('idBadge');
       if (idBadge) {
         idBadge.addEventListener('click', () => {
@@ -2050,11 +1852,12 @@
         });
       }
 
-      document.querySelectorAll('.skill-tag, .hobby-tag, .contact-callout-sticker, .holographic-badge, .tab').forEach(tag => {
-        tag.addEventListener('click', () => {
-          tag.classList.remove('animate-wiggle');
-          void tag.offsetWidth;
-          tag.classList.add('animate-wiggle');
+      // 3. MICRO-ANIMATIONS ON TAGS & TILES
+      document.querySelectorAll('.skill-tag, .hobby-tag, .contact-callout-sticker').forEach(el => {
+        el.addEventListener('click', () => {
+          el.classList.remove('animate-wiggle');
+          void el.offsetWidth;
+          el.classList.add('animate-wiggle');
         });
       });
 
@@ -2066,19 +1869,7 @@
         });
       });
 
-      const contactSticky = document.querySelector('.contact-sticky');
-      if (contactSticky) {
-        contactSticky.addEventListener('click', (e) => {
-          e.stopPropagation();
-          contactSticky.classList.remove('animate-flutter');
-          void contactSticky.offsetWidth;
-          contactSticky.classList.add('animate-flutter');
-        });
-      }
-
-      // ==========================================
       // 4. MINI GAME 1: BANGLISH GIFT BOX
-      // ==========================================
       const giftBoxBtn = document.getElementById('giftBoxBtn');
       const openGiftBtn = document.getElementById('openGiftBtn');
       const giftLid = document.getElementById('giftLid');
@@ -2100,7 +1891,6 @@
       function triggerOpenGift() {
         isBoxOpen = !isBoxOpen;
         if (isBoxOpen) {
-          playPopChime();
           giftLid.classList.add('open');
           openGiftBtn.textContent = 'Bondho Kore Abar Khulo';
           const randomGift = giftSurprises[Math.floor(Math.random() * giftSurprises.length)];
@@ -2109,17 +1899,17 @@
 
           if (confettiContainer) {
             confettiContainer.innerHTML = '';
-            for (let i = 0; i < 18; i++) {
+            for (let i = 0; i < 14; i++) {
               const conf = document.createElement('div');
               conf.style.cssText = `
-                position: absolute; width: 8px; height: 8px;
+                position: absolute; width: 6px; height: 6px;
                 background: ${sparkleColors[i % sparkleColors.length]}; border-radius: 50%;
                 left: 50%; top: 60%; transform: translate(-50%, -50%);
-                pointer-events: none; transition: all 0.8s ease; opacity: 1;
+                pointer-events: none; transition: all 0.75s ease; opacity: 1;
               `;
               confettiContainer.appendChild(conf);
               setTimeout(() => {
-                conf.style.transform = `translate(${ (Math.random() - 0.5) * 160 }px, -${ Math.random() * 80 + 20 }px)`;
+                conf.style.transform = `translate(${ (Math.random() - 0.5) * 140 }px, -${ Math.random() * 70 + 20 }px)`;
                 conf.style.opacity = '0';
               }, 20);
             }
@@ -2134,9 +1924,7 @@
       if (giftBoxBtn) giftBoxBtn.addEventListener('click', triggerOpenGift);
       if (openGiftBtn) openGiftBtn.addEventListener('click', triggerOpenGift);
 
-      // ==========================================
-      // 5. MINI GAME 2: CARD DECK
-      // ==========================================
+      // 5. MINI GAME 2: FRIENDSHIP CARD DECK
       const drawnCard = document.getElementById('drawnCard');
       const cardInner = document.getElementById('cardInner');
       const drawCardBtn = document.getElementById('drawCardBtn');
@@ -2156,7 +1944,6 @@
 
       let cardIndex = 0;
       function drawNewCard() {
-        playPopChime();
         cardInner.classList.remove('flipped');
         setTimeout(() => {
           cardIndex = (cardIndex + 1) % suggestionCards.length;
@@ -2165,14 +1952,12 @@
           cardTask.textContent = `"${card.task}"`;
           cardCode.textContent = card.code;
           cardInner.classList.add('flipped');
-        }, 280);
+        }, 260);
       }
       if (drawCardBtn) drawCardBtn.addEventListener('click', drawNewCard);
       if (drawnCard) drawnCard.addEventListener('click', drawNewCard);
 
-      // ==========================================
       // 6. MINI GAME 3: CYBER SQUAD AURA SCANNER
-      // ==========================================
       let currentMode = 'FREE FIRE';
       const modePills = document.querySelectorAll('.mode-pill');
       const auraModeSub = document.getElementById('auraModeSub');
@@ -2192,7 +1977,7 @@
         { rank: 'S+ LEGEND', role: 'Redstone Architect', aim: 92, iq: 99, vibe: 95, verdict: 'Mastermind builder & tactician. Every base and rotation is 200 IQ.' },
         { rank: 'S-TIER PRO', role: 'Motion Vanguard', aim: 94, iq: 91, vibe: 94, verdict: 'Frame-perfect reflexes! Clean cuts in editing and zero-recoil precision in combat.' },
         { rank: 'SS SHADOW', role: 'Sniper Striker', aim: 98, iq: 94, vibe: 96, verdict: 'Silent, lethal, and always holding the winning angle for the squad in Dhaka.' },
-        { rank: 'MYTHIC VIP', role: 'Night Owl Creator', aim: 93, iq: 97, vibe: 98, verdict: 'Peak 2 AM creative flow state unlocked! Code, edits, and gaming at maximum power.' }
+        { rank: 'MYTHIC VIP', role: 'Night Owl Creator', aim: 93, iq: 97, vibe: 98, verdict: 'Peak creative flow state unlocked! Code, edits, and gaming at maximum power.' }
       ];
 
       modePills.forEach(pill => {
@@ -2207,10 +1992,9 @@
       if (scanAuraBtn) {
         scanAuraBtn.addEventListener('click', () => {
           scanAuraBtn.disabled = true;
-          scanAuraBtn.textContent = 'SCANNING AURA...';
+          scanAuraBtn.textContent = 'SCANNING...';
           let step = 0;
           const interval = setInterval(() => {
-            playCyberScanSound();
             const rAim = Math.floor(Math.random() * 25) + 75;
             const rIq = Math.floor(Math.random() * 25) + 75;
             const rVibe = Math.floor(Math.random() * 20) + 80;
@@ -2223,9 +2007,8 @@
             vibeVal.textContent = rVibe + '%';
             vibeBar.style.width = rVibe + '%';
             step++;
-            if (step > 9) {
+            if (step > 8) {
               clearInterval(interval);
-              playPopChime();
               const picked = auraTiers[Math.floor(Math.random() * auraTiers.length)];
               auraRankChip.textContent = picked.rank;
               auraRoleName.textContent = picked.role;
@@ -2239,9 +2022,35 @@
               scanAuraBtn.textContent = 'Boost Squad Aura';
               scanAuraBtn.disabled = false;
             }
-          }, 65);
+          }, 60);
         });
       }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Scroll-spy for nav pills
+      const pills = [...document.querySelectorAll('.nav-pill')];
+      const targets = pills.map(p => document.querySelector(p.getAttribute('href')));
+      const setActive = (i) => pills.forEach((p, k) => p.classList.toggle('active', k === i));
+      const spy = () => {
+        let cur = 0;
+        targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= 140) cur = i; });
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = targets.length - 1;
+        setActive(cur);
+      };
+      window.addEventListener('scroll', spy, { passive: true });
+      window.addEventListener('resize', spy);
+      spy();
+
+      // Keyboard access for the clickable game objects
+      ['giftBoxBtn', 'drawnCard'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+        });
+      });
     });
   </script>
 </body>
